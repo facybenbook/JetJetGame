@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: a4bbf28fe42628844abaeb0eb87412ce
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Akkad
+  fontNames:
+  - Akkad
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 9543dc1b5b569364097ef47ff3170ef6, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
