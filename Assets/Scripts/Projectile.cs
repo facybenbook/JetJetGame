@@ -92,10 +92,10 @@ public class Projectile : MonoBehaviour
         mesh.localScale = new Vector3(2f, 200f, 2f);
 
         yield return 0;
-        mesh.localScale = new Vector3(5f, 500f, 5f);
+        mesh.localScale = new Vector3(5f, 200f, 5f);
 
         yield return new WaitForSeconds(0.2f);
-        mesh.localScale = new Vector3(10f, 1000f, 10f);
+        mesh.localScale = new Vector3(10f, 500f, 10f);
         trail.SetActive(true);
     }
 
