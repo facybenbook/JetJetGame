@@ -89,13 +89,13 @@ public class Projectile : MonoBehaviour
     IEnumerator EnLargen()
     {
         yield return 0;
-        mesh.localScale = new Vector3(0.1f, 1f, 1000f);
+        mesh.localScale = new Vector3(2f, 200f, 2f);
 
         yield return 0;
-        mesh.localScale = new Vector3(0.1f, 2f, 2000f);
+        mesh.localScale = new Vector3(5f, 500f, 5f);
 
-        yield return new WaitForSeconds(0.1f);
-        mesh.localScale = new Vector3(0.1f, 3f, 3000f);
+        yield return new WaitForSeconds(0.2f);
+        mesh.localScale = new Vector3(10f, 1000f, 10f);
         trail.SetActive(true);
     }
 
