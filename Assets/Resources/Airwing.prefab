@@ -2604,7 +2604,7 @@ PrefabInstance:
     - target: {fileID: 3048059565051371058, guid: 08370238cbda13544b21231135dbf613,
         type: 3}
       propertyPath: SoundsPerSec
-      value: 12
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8479845951591908525, guid: 08370238cbda13544b21231135dbf613,
         type: 3}
@@ -2706,12 +2706,7 @@ PrefabInstance:
     - target: {fileID: 3048059565051371058, guid: 08370238cbda13544b21231135dbf613,
         type: 3}
       propertyPath: SoundsPerSec
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 913104744118643268, guid: 08370238cbda13544b21231135dbf613,
-        type: 3}
-      propertyPath: m_Layer
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8479845951591908525, guid: 08370238cbda13544b21231135dbf613,
         type: 3}
@@ -2767,6 +2762,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 913104744118643268, guid: 08370238cbda13544b21231135dbf613,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 550646070495959237, guid: 08370238cbda13544b21231135dbf613,
         type: 3}

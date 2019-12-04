@@ -9,4 +9,13 @@ public class Menu : MonoBehaviour
         Game.I.StartMatch();
     }
 
+    public void ExitGame()
+    {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
+    }
+
 }

@@ -27,6 +27,7 @@ public class Game : MonoBehaviour
     bool IsMobile = false;
     bool CurrentlyPlaying = false;
     double StartTime = -1;
+    Vector3 InitialCamPos;
 
     //
 
@@ -38,6 +39,8 @@ public class Game : MonoBehaviour
             IsMobile = true;
             SetAndroidBack();
         #endif
+
+        InitialCamPos = CamTrk.Cam.transform.position;
 
         //Screen.SetResolution(640, 480, false);
 
@@ -131,7 +134,7 @@ public class Game : MonoBehaviour
 
     public void SetCamHome()
     {
-        CamTrk.SetCamPos(new Vector3(0, 45f, -55f));
+        CamTrk.SetCamPos(InitialCamPos);
         CamTrk.SetCamRot(Quaternion.identity);
     }
 

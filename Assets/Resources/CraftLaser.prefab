@@ -70,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 114320605245377670, guid: f063764b7e89e1e47ae3ffd7ad3b926c,
         type: 3}
       propertyPath: speed
-      value: 20000
+      value: 25000
       objectReference: {fileID: 0}
     - target: {fileID: 114320605245377670, guid: f063764b7e89e1e47ae3ffd7ad3b926c,
         type: 3}
@@ -135,7 +135,7 @@ PrefabInstance:
     - target: {fileID: 8332629471010944935, guid: f063764b7e89e1e47ae3ffd7ad3b926c,
         type: 3}
       propertyPath: m_Time
-      value: 0.01
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8558857335003071246, guid: f063764b7e89e1e47ae3ffd7ad3b926c,
         type: 3}
