@@ -8,8 +8,6 @@ public class CityMake : MonoBehaviour
     public float gridDepth = 120000f;
 
     public int seed = 0;
-    public bool debugFlatten = false;
-
 
     int total = 0;
 
@@ -86,7 +84,6 @@ public class CityMake : MonoBehaviour
         {
             PerlinMake();
             //BorderMake();
-            //GridMake();
 
             GPUInstancerAPI.RegisterPrefabInstanceList(prefabManager, gpuInstances);
             GPUInstancerAPI.InitializeGPUInstancer(prefabManager);
@@ -122,7 +119,7 @@ public class CityMake : MonoBehaviour
 
                 perlin = Mathf.PerlinNoise(seed + pD, seed + pW);
                 perlin *= 10f;
-                if( perlin < 3 || debugFlatten)
+                if( perlin < 3 )
                 {
                     // VeryTall
                     PrintSquare( 4000f, blockPos, "VeryTall" );
@@ -173,16 +170,6 @@ public class CityMake : MonoBehaviour
 
         if( IsClear(pos, size) )
         {
-
-            // if(size >= 20000f)
-            // {
-            //     // 20000 block
-            //     if(height == "VeryTall")
-            //     {
-            //         allocatedGO = Instantiate(o20000VeryTall[i20000VeryTall%=o20000VeryTall.Count], pos, Quaternion.identity);
-            //         i20000VeryTall++;
-            //     }
-            // }
             if(size >= 4000f)
             {
                 // 4000 block
@@ -319,6 +306,7 @@ public class CityMake : MonoBehaviour
         float hypotenuse = Mathf.Sqrt( (quadrant * quadrant) + (quadrant * quadrant) );
         bool clear = true;
 
+        // 4 rays around perimiter
         for(int r=0; r<4; r++)
         {
             if(r==0) {        rayCorner = pos + ( transform.right * quadrant) + ( transform.forward * quadrant); raydir = -transform.forward;   Debug.DrawLine(rayCorner, rayCorner + (raydir * size), Color.green); }
@@ -333,9 +321,10 @@ public class CityMake : MonoBehaviour
             }
         }
 
+        // 4 rays from center to corners
         for(int r=0; r<4; r++)
         {
-            if(r==0) {   rayCorner = pos; raydir = (transform.forward + transform.right).normalized;           Debug.DrawLine(rayCorner, rayCorner + (raydir * hypotenuse), Color.green);  }
+            if(r==0) {   rayCorner = pos; raydir = (transform.forward + transform.right).normalized;                Debug.DrawLine(rayCorner, rayCorner + (raydir * hypotenuse), Color.green);  }
             else if(r==1) {   rayCorner = pos; raydir = (-transform.forward + transform.right).normalized;          Debug.DrawLine(rayCorner, rayCorner + (raydir * hypotenuse), Color.green);  }
             else if(r==2) {   rayCorner = pos; raydir = (-transform.forward + -transform.right).normalized;         Debug.DrawLine(rayCorner, rayCorner + (raydir * hypotenuse), Color.green);  }
             else if(r==3) {   rayCorner = pos; raydir = (transform.forward + -transform.right).normalized;          Debug.DrawLine(rayCorner, rayCorner + (raydir * hypotenuse), Color.green);  }
@@ -347,19 +336,6 @@ public class CityMake : MonoBehaviour
             }
         }
 
-        // for(int r=0; r<4; r++)
-        // {
-        //     if(r==0) {        rayCorner = pos + ( transform.right * quadrant) + ( transform.forward * quadrant); raydir = transform.forward;   Debug.DrawLine(rayCorner, rayCorner + (raydir * quadrant), Color.blue); }
-        //     else if(r==1) {   rayCorner = pos + ( transform.right * quadrant) + (-transform.forward * quadrant); raydir = transform.right;     Debug.DrawLine(rayCorner, rayCorner + (raydir * quadrant), Color.blue); }
-        //     else if(r==2) {   rayCorner = pos + (-transform.right * quadrant) + (-transform.forward * quadrant); raydir = -transform.forward;    Debug.DrawLine(rayCorner, rayCorner + (raydir * quadrant), Color.blue); }
-        //     else if(r==3) {   rayCorner = pos + (-transform.right * quadrant) + ( transform.forward * quadrant); raydir = -transform.right;      Debug.DrawLine(rayCorner, rayCorner + (raydir * quadrant), Color.blue);  }
-        //
-        //     if( Physics.Raycast(rayCorner, raydir, out rayhit, quadrant, layerMask))
-        //     {
-        //         //Debug.DrawLine(rayCorner, rayhit.point, Color.red);
-        //         clear = false;
-        //     }
-        // }
 
         if(clear)
         {
@@ -375,8 +351,6 @@ public class CityMake : MonoBehaviour
 
 
 
-
-
     void BorderMake()
     {
         for (float d = 0; d < gridDepth; d += blockSize)
@@ -385,15 +359,8 @@ public class CityMake : MonoBehaviour
             PrintSquare( borderSize, transform.position + (transform.right * (gridWidth + (borderSize/2f)) ) + (transform.forward * d), "VeryTall");
         }
     }
-    //
-    // void GridMake()
-    // {
-    //     for (float d = 0; d < gridDepth; d += blockSize)
-    //         for (float w = 0; w < gridWidth; w += blockSize)
-    //             PrintSquare( blockSize, transform.position + (transform.right * (blockSize/2f)) + (transform.right * w) + (transform.forward * d) + (transform.forward * (blockSize/2f)), "Short" );
-    // }
 
-    //////////////////////////////////////////////////////////////////////////////////////
+
 
     void OnDrawGizmos()
 	{

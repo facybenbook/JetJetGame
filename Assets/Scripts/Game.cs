@@ -95,7 +95,7 @@ public class Game : MonoBehaviour
         print("PlayMenu");
         CurrentlyPlaying = false;
         Time.timeScale = 0;
-        CamTrk.Cam.GetComponent<Camera>().farClipPlane = 59000;
+        CamTrk.Cam.GetComponent<Camera>().farClipPlane = 40000f;
 
         BoomBox.I.PauseEngines();
 
