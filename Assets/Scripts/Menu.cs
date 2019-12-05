@@ -18,4 +18,14 @@ public class Menu : MonoBehaviour
         #endif
     }
 
+    public void ShowItem(GameObject item)
+    {
+        item.SetActive(true);
+    }
+
+    public void HideItem(GameObject item)
+    {
+        item.SetActive(false);
+    }
+
 }

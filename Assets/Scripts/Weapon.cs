@@ -62,13 +62,7 @@ public class Weapon : MonoBehaviour
                 // rate of fire
                 if( TimeSinceLastSound >= (1/SoundsPerSec) )
                 {
-                    int ran = 0;//  Random.Range(0, 2);
-                    if(ran == 0)
-                        BoomBox.I.PlaySoundWeapon(ShotSound);
-                    else if(ran == 1)
-                        BoomBox.I.PlaySoundWeapon(ShotSound);
-                    else
-                        BoomBox.I.PlaySoundWeapon(ShotSound);
+                    BoomBox.I.PlaySoundWeapon(ShotSound);
 
                     TimeSinceLastSound = 0f;
                 }

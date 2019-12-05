@@ -49,6 +49,8 @@ public class Game : MonoBehaviour
         AimHUD.SetActive(false);
         CamTrk.ControlCanvas.SetActive(false);
 
+        StartCoroutine( StartingMenu() );
+
     }
 
     void Update()
@@ -66,11 +68,19 @@ public class Game : MonoBehaviour
 
     //
 
+    IEnumerator StartingMenu()
+    {
+        yield return 0;
+
+        PlayMenu();
+    }
+
     public void PlayGame()
     {
         print("PlayGame");
         CurrentlyPlaying = true;
         Time.timeScale = 1;
+        CamTrk.Cam.GetComponent<Camera>().farClipPlane = 200000f;
 
         LockCursor();
         MainMenu.SetActive(false);
@@ -85,6 +95,7 @@ public class Game : MonoBehaviour
         print("PlayMenu");
         CurrentlyPlaying = false;
         Time.timeScale = 0;
+        CamTrk.Cam.GetComponent<Camera>().farClipPlane = 59000;
 
         BoomBox.I.PauseEngines();
 
