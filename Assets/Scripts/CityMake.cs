@@ -12,16 +12,16 @@ public class CityMake : MonoBehaviour
     int total = 0;
 
     // [Header("20000")]
-    // public List<GPUInstancerPrefab> o20000VeryTall = new List<GPUInstancerPrefab>();
+    // public List<> o20000VeryTall = new List<GameObject>();
     // int i20000VeryTall = 0;
 
     [Header("4000")]
-    public List<GPUInstancerPrefab> o4000VeryTall = new List<GPUInstancerPrefab>();
-    public List<GPUInstancerPrefab> o4000Tall = new List<GPUInstancerPrefab>();
-    public List<GPUInstancerPrefab> o4000Medium = new List<GPUInstancerPrefab>();
-    public List<GPUInstancerPrefab> o4000Short = new List<GPUInstancerPrefab>();
-    public List<GPUInstancerPrefab> o4000VeryShort = new List<GPUInstancerPrefab>();
-    public List<GPUInstancerPrefab> o4000Ground = new List<GPUInstancerPrefab>();
+    public List<GameObject> o4000VeryTall = new List<GameObject>();
+    public List<GameObject> o4000Tall = new List<GameObject>();
+    public List<GameObject> o4000Medium = new List<GameObject>();
+    public List<GameObject> o4000Short = new List<GameObject>();
+    public List<GameObject> o4000VeryShort = new List<GameObject>();
+    public List<GameObject> o4000Ground = new List<GameObject>();
 
     int i4000VeryTall = 0;
     int i4000Tall = 0;
@@ -31,12 +31,12 @@ public class CityMake : MonoBehaviour
     int i4000Ground = 0;
 
     [Header("2000")]
-    public List<GPUInstancerPrefab> o2000VeryTall = new List<GPUInstancerPrefab>();
-    public List<GPUInstancerPrefab> o2000Tall = new List<GPUInstancerPrefab>();
-    public List<GPUInstancerPrefab> o2000Medium = new List<GPUInstancerPrefab>();
-    public List<GPUInstancerPrefab> o2000Short = new List<GPUInstancerPrefab>();
-    public List<GPUInstancerPrefab> o2000VeryShort = new List<GPUInstancerPrefab>();
-    public List<GPUInstancerPrefab> o2000Ground = new List<GPUInstancerPrefab>();
+    public List<GameObject> o2000VeryTall = new List<GameObject>();
+    public List<GameObject> o2000Tall = new List<GameObject>();
+    public List<GameObject> o2000Medium = new List<GameObject>();
+    public List<GameObject> o2000Short = new List<GameObject>();
+    public List<GameObject> o2000VeryShort = new List<GameObject>();
+    public List<GameObject> o2000Ground = new List<GameObject>();
 
     int i2000VeryTall = 0;
     int i2000Tall = 0;
@@ -46,12 +46,12 @@ public class CityMake : MonoBehaviour
     int i2000Ground = 0;
 
     [Header("1000")]
-    public List<GPUInstancerPrefab> o1000VeryTall = new List<GPUInstancerPrefab>();
-    public List<GPUInstancerPrefab> o1000Tall = new List<GPUInstancerPrefab>();
-    public List<GPUInstancerPrefab> o1000Medium = new List<GPUInstancerPrefab>();
-    public List<GPUInstancerPrefab> o1000Short = new List<GPUInstancerPrefab>();
-    public List<GPUInstancerPrefab> o1000VeryShort = new List<GPUInstancerPrefab>();
-    public List<GPUInstancerPrefab> o1000Ground = new List<GPUInstancerPrefab>();
+    public List<GameObject> o1000VeryTall = new List<GameObject>();
+    public List<GameObject> o1000Tall = new List<GameObject>();
+    public List<GameObject> o1000Medium = new List<GameObject>();
+    public List<GameObject> o1000Short = new List<GameObject>();
+    public List<GameObject> o1000VeryShort = new List<GameObject>();
+    public List<GameObject> o1000Ground = new List<GameObject>();
 
     int i1000VeryTall = 0;
     int i1000Tall = 0;
@@ -60,34 +60,34 @@ public class CityMake : MonoBehaviour
     int i1000VeryShort = 0;
     int i1000Ground = 0;
 
-    public GPUInstancerPrefabManager prefabManager;
-    List<GPUInstancerPrefab> gpuInstances = new List<GPUInstancerPrefab>();
+    //public GPUInstancerPrefabManager prefabManager;
+    //List<GPUInstancerPrefab> gpuInstances = new List<GPUInstancerPrefab>();
 
     float blockSize = 4000f;
     float borderSize = 20000f;
 
     Vector3 blockPos;
     Quaternion blockRot;
-    GPUInstancerPrefab allocatedGO;
+    GameObject allocatedGO;
     GameObject cityGO;
 
     //
 
     void Start()
     {
-        gpuInstances.Clear();
+        //gpuInstances.Clear();
         cityGO = new GameObject("CityCompile");
         cityGO.transform.position = gameObject.transform.position;
         cityGO.transform.parent = gameObject.transform;
 
-        if (prefabManager != null && prefabManager.gameObject.activeSelf && prefabManager.enabled)
-        {
+        // if (prefabManager != null && prefabManager.gameObject.activeSelf && prefabManager.enabled)
+        // {
             PerlinMake();
             //BorderMake();
 
-            GPUInstancerAPI.RegisterPrefabInstanceList(prefabManager, gpuInstances);
-            GPUInstancerAPI.InitializeGPUInstancer(prefabManager);
-        }
+            // GPUInstancerAPI.RegisterPrefabInstanceList(prefabManager, gpuInstances);
+            // GPUInstancerAPI.InitializeGPUInstancer(prefabManager);
+        //}
 
         Debug.Break();
     }
@@ -148,7 +148,7 @@ public class CityMake : MonoBehaviour
                 }
 
                 allocatedGO.transform.parent = cityGO.transform;
-                gpuInstances.Add( allocatedGO );
+                //gpuInstances.Add( allocatedGO );
                 total++;
 
             }
@@ -274,7 +274,7 @@ public class CityMake : MonoBehaviour
             }
 
             allocatedGO.transform.parent = cityGO.transform;
-            gpuInstances.Add( allocatedGO );
+            //gpuInstances.Add( allocatedGO );
             total++;
 
             return;

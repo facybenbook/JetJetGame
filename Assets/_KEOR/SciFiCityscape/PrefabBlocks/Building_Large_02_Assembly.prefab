@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4048550400060354}
-  - component: {fileID: 1479633438372217012}
+  - component: {fileID: 3807077492301185643}
   m_Layer: 0
   m_Name: Building_Large_02_Assembly
   m_TagString: Untagged
@@ -55,7 +55,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &1479633438372217012
+--- !u!114 &3807077492301185643
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13f42112a552354988a63573e49f5d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabPrototype: {fileID: 11400000, guid: 98f92db4a069e9547838d543518c65f3, type: 2}
+  prefabPrototype: {fileID: 11400000, guid: f196a956e776ed84aa2fcd8dffe9e63e, type: 2}
   gpuInstancerID: 0
   state: 0
 --- !u!1 &1853634474409420

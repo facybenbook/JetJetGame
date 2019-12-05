@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25e83c12ea754689a476d23cac7e5ad7, type: 3}
-  m_Name: Building_Large_03_Assembly_29048
+  m_Name: Building_Large_03_Assembly_28804
   m_EditorClassIdentifier: 
   prefabObject: {fileID: 1319553032281476, guid: fb3b4cfe54bf9b642b74b76181052907,
     type: 3}
@@ -37,7 +37,7 @@ MonoBehaviour:
   useOriginalShaderForShadow: 1
   cullShadows: 0
   minDistance: 0
-  maxDistance: 40000
+  maxDistance: 60000
   isFrustumCulling: 1
   isOcclusionCulling: 1
   frustumOffset: 0.2
@@ -70,7 +70,7 @@ MonoBehaviour:
     billboardFaceCamPos: 0
   isBillboardDisabled: 0
   useGeneratedBillboard: 0
-  checkedForBillboardExtensions: 1
+  checkedForBillboardExtensions: 0
   autoUpdateTransformData: 0
   treeType: 0
   warningText: 
