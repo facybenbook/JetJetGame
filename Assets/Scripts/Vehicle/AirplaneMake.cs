@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Creator : MonoBehaviour
+public class AirplaneMake : MonoBehaviour
 {
 
     public Fighter FighterType;
     public int Number;
 
-    public Rigidbody tempTarget;
+    public Rigidbody Target;
 
     void Start()
     {
@@ -18,7 +18,7 @@ public class Creator : MonoBehaviour
             Fighter newFi = GameObject.Instantiate(FighterType).GetComponent<Fighter>();
             newFi.transform.position = transform.position + (Vector3.up * 5000f);
             newFi.transform.rotation = Quaternion.identity;
-            newFi.SetTarget(tempTarget);
+            newFi.SetTarget(Target);
             newFi.IdleDirection = transform.forward;
             i++;
         }

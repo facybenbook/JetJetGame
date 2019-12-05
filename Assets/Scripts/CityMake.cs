@@ -96,9 +96,6 @@ public class CityMake : MonoBehaviour
 
     void PerlinMake()
     {
-
-        int z=0;
-        int zz=0;
         float perlin = 0;
 
         Vector3 origin = transform.position + ( transform.right * (blockSize/2f) );

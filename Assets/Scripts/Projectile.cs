@@ -14,6 +14,8 @@ public class Projectile : MonoBehaviour
     RaycastHit hit;
     Vector3 hitpositon;
 
+    int layerMask = 1 << 0; // Default layer
+
     //
 
     void Start()
@@ -26,7 +28,7 @@ public class Projectile : MonoBehaviour
         range = speed * Time.deltaTime;
         DoStep();
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit, range))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, range, layerMask))
             DoHit();
 
 	}
@@ -67,9 +69,15 @@ public class Projectile : MonoBehaviour
             print(hit.collider + " received ENEMY FIRE Fire from: " + team);
 
         }
-        else if ( hit.collider.tag == "StageTrack" || hit.collider.tag == "RoadNetwork")
+        else if ( hit.collider.tag == "StageTrack")
         {
-            // no action
+            // should be outside the default layer
+            print("StageTrackLayer Projectile Collision!! Error.");
+        }
+        else if ( hit.collider.tag == "RoadNetwork")
+        {
+            // should be outside the default layer
+            print("RoadNetwork Projectile Collision!! Error.");
         }
         // Environment
         else {

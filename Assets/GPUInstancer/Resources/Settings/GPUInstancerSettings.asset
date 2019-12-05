@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a45e579af74dd45832a08d7a2696b6, type: 3}
   m_Name: GPUInstancerSettings
   m_EditorClassIdentifier: 
-  versionNo: 1.26
+  versionNo: 1.27
   shaderBindings: {fileID: 11400000, guid: ccc659f31af2276489ad3bb65e60bda9, type: 2}
   billboardAtlasBindings: {fileID: 11400000, guid: f82bca3cc0e91ce44bc78690075359db,
     type: 2}
