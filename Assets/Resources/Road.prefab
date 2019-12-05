@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4708288627168913412}
   - component: {fileID: 8904563685613592233}
   - component: {fileID: 1793789961670878055}
-  - component: {fileID: 2375237324252096559}
   m_Layer: 8
   m_Name: Road
   m_TagString: RoadNetwork
@@ -93,15 +92,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 10000, z: 1}
   m_Center: {x: 0, y: 5000, z: 0}
---- !u!114 &2375237324252096559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6495590723004669276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a71faccbbd5a6d34c83ee599f06db566, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

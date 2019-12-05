@@ -35,8 +35,6 @@ public class CamTrack : MonoBehaviour
     float crossRayDist = 20000f;
     RaycastHit crossHit;
 
-    [Header("BoreSightObject")]
-    public GameObject BoreSightObject;
 
     [Header("AimScreen")]
     public GameObject AimScreen;
@@ -107,7 +105,7 @@ public class CamTrack : MonoBehaviour
 
         origScreenW = Screen.width;
         origScreenH = Screen.height;
-        CheckFrustum();
+        //CheckFrustum();
 
         Application.backgroundLoadingPriority = ThreadPriority.Low;
     }
@@ -184,15 +182,13 @@ public class CamTrack : MonoBehaviour
 
     public void FollowTarget()
     {
-        CheckFrustum();
+        //CheckFrustum();
 
-        // Based on Rail direction speed (not used)
-        // Adjust Cam Distance
-        // TODO: handle rotation of Rail direction, ie, get the component of the crafts speed,
-        // in dir of current rail, right now rigid.velocity.z always assumes same rail direction
 
         Vector3 newPos = Airwing.transform.position + (RailDirection * (CamZOffset + ZoomZOffset));
 
+        // Based on Rail direction speed
+        // Adjust Cam Distance(not used)
         // Vector3 AirwingVector = Airwing.transform.position + (RailDirection * (CamZOffset + ZoomZOffset)) + ((Airwing.GetComponent<Airwing>().rigid.velocity) * Time.deltaTime);
         // Vector3 CamToAirwing = AirwingVector - newPos;
         //
@@ -211,15 +207,7 @@ public class CamTrack : MonoBehaviour
         // print(CamToAirwing.magnitude);
         // Vector3 NearFarAdjusted = (-CamToAirwing.normalized * CamAdjust);
 
-
-
         transform.position = newPos + new Vector3(0, CamYOffset * CamYOffsetDir, 0); // + NearFarAdjusted;
-
-
-
-        // Boresight
-        BoreSightObject.transform.position = Airwing.transform.position + (Airwing.transform.forward * GroundRayDistance);
-        BoreSightObject.transform.rotation = Cam.transform.rotation;
 
 
          // NEAR GROUND CHECK
@@ -660,10 +648,10 @@ public class CamTrack : MonoBehaviour
     }
 
 
-    void CheckFrustum()
+    public void CheckFrustum()
     {
-        if (lastScreenW != Screen.width || lastScreenH != Screen.height)
-        {
+        // if (lastScreenW != Screen.width || lastScreenH != Screen.height)
+        // {
             SetButtonBoundaries();
 
             var frustumShrink = 1f; // % of screen
@@ -685,7 +673,7 @@ public class CamTrack : MonoBehaviour
             limitRight = (frustumWidth * frustumShrink) / 2;
             limitLeft = -limitRight;
 
-        }
+        // }
     }
 
 

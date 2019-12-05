@@ -42,13 +42,12 @@ public class Game : MonoBehaviour
 
         InitialCamPos = CamTrk.Cam.transform.position;
 
-        //Screen.SetResolution(640, 480, false);
+        Screen.SetResolution(1024, 768, false);
+        CamTrk.CheckFrustum();
 
         MainMenu.SetActive(true);
         AimHUD.SetActive(false);
         CamTrk.ControlCanvas.SetActive(false);
-
-
 
     }
 
@@ -63,7 +62,6 @@ public class Game : MonoBehaviour
                     PlayMenu();
                 else
                     PlayGame();
-
     }
 
     //
