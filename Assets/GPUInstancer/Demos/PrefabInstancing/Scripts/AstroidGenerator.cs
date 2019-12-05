@@ -5,177 +5,99 @@ namespace GPUInstancer
 {
     public class AstroidGenerator : MonoBehaviour
     {
-        public float gridWidth = 1000;
-        public float gridDepth = 1000;
-        public float blockSize = 10;
-
-        private int step;
-
+        [Range(0, 200000)]
+        public int count = 50000;
+        
         public List<GPUInstancerPrefab> asteroidObjects = new List<GPUInstancerPrefab>();
         public GPUInstancerPrefabManager prefabManager;
+        public Transform centerTransform;
 
         private List<GPUInstancerPrefab> asteroidInstances = new List<GPUInstancerPrefab>();
         private int instantiatedCount;
+        private Vector3 center;
         private Vector3 allocatedPos;
         private Quaternion allocatedRot;
+        private Vector3 allocatedLocalEulerRot;
+        private Vector3 allocatedLocalScale;
         private GPUInstancerPrefab allocatedGO;
         private GameObject goParent;
+        private float allocatedLocalScaleFactor;
+        private int columnSize;
+        private int columnSpace = 3;
 
-
-        public Rigidbody Target = null;
-        float TargetDistance = Mathf.Infinity;
-        float CullDistance = 35000f;
-
-
-
-        private void RunGenerator()
+        private void Awake()
         {
             instantiatedCount = 0;
-
+            center = centerTransform.position;
+            allocatedPos = Vector3.zero;
+            allocatedRot = Quaternion.identity;
+            allocatedLocalEulerRot = Vector3.zero;
+            allocatedLocalScale = Vector3.one;
+            allocatedLocalScaleFactor = 1f;
 
             goParent = new GameObject("Asteroids");
-            goParent.transform.position = gameObject.transform.position;
+            goParent.transform.position = center;
             goParent.transform.parent = gameObject.transform;
+
+            columnSize = count < 5000 ? 1 : count / 2500;
+            
+            int firstPassColumnSize = count % columnSize > 0 ? columnSize - 1 : columnSize;
 
             asteroidInstances.Clear();
 
-            // find the object with the largest footprint
-            //
-
-
-            // foreach(GPUInstancerPrefab go in asteroidObjects)
-            //     print(go.GetComponent<Renderer>().bounds.size.x);
-
-
-
-            for (float d = 0; d < gridDepth; d += blockSize)
+            for (int h = 0; h < firstPassColumnSize; h++)
             {
-                for (float w = 0; w < gridWidth; w += blockSize)
+                for (int i = 0; i < Mathf.FloorToInt((float)count / columnSize); i++)
                 {
-
-                    allocatedPos = new Vector3(transform.position.x + w, 0, transform.position.z + d);
-                    allocatedRot = Quaternion.identity;
-
-                    float pD = (d/blockSize) + 0.5f;
-                    float pW = (w/blockSize) + 0.5f;
-
-                    float n = Mathf.PerlinNoise(pD, pW);
-                    n *= 10f;
-                    if( n<2)
-                        allocatedGO = Instantiate(asteroidObjects[0], allocatedPos, allocatedRot);
-                    else if( n < 4)
-                        allocatedGO = Instantiate(asteroidObjects[1], allocatedPos, allocatedRot);
-                    else if( n < 6)
-                        allocatedGO = Instantiate(asteroidObjects[2], allocatedPos, allocatedRot);
-                    else if( n < 8)
-                        allocatedGO = Instantiate(asteroidObjects[3], allocatedPos, allocatedRot);
-                    else if( n < 10)
-                        allocatedGO = Instantiate(asteroidObjects[4], allocatedPos, allocatedRot);
-
-                    allocatedGO.transform.parent = goParent.transform;
-
-                    instantiatedCount++;
-
-                    asteroidInstances.Add( allocatedGO );
-
-
-
-
-
+                    asteroidInstances.Add(InstantiateInCircle(center, h));
                 }
             }
 
-
-            //
-            //     float dist = 500f;
-            //     RaycastHit hit;
-            //     Vector3 start = (transform.position + new Vector3(0, 10f, 0)) + (transform.forward * (blockSize * h));
-            //
-            //     if( Physics.Raycast(start, transform.forward, out hit, step)) { // raycast from above to detect terrain collisions
-            //
-            //         print(hit.collider.tag);
-            //         // if( hit.collider.tag == "Terrain") {
-            //             //currentTerrainY = hit.point.y;
-            //         // }
-            //     }
-            //     else {
-            //         //currentTerrainY = 0;
-            //     }
-            //
-            //     Debug.DrawLine(start, start + (transform.forward * (step * h)), Color.yellow);
-            //
-            //     Debug.Break();
-            //
-            //
-            //     asteroidInstances.Add(InstantiateOnRay(transform.position, transform.forward, h * step));
-            //
-            // }
-
-
+            if (firstPassColumnSize != columnSize)
+            {
+                for (int i = 0; i < count - (Mathf.FloorToInt((float)count / columnSize) * firstPassColumnSize); i++)
+                {
+                    asteroidInstances.Add(InstantiateInCircle(center, columnSize));
+                }
+            }
             Debug.Log("Instantiated " + instantiatedCount + " objects.");
         }
 
         private void Start()
         {
-
-             RunGenerator();
-
             if (prefabManager != null && prefabManager.gameObject.activeSelf && prefabManager.enabled)
             {
                 GPUInstancerAPI.RegisterPrefabInstanceList(prefabManager, asteroidInstances);
                 GPUInstancerAPI.InitializeGPUInstancer(prefabManager);
             }
-
-            //InvokeRepeating("Observe", 0, 0.5f);
-
         }
 
-        void Observe() {
-
-            // if(Target == null)
-            //     return;
-            //
-            // TargetDistance = Vector3.Distance(transform.position, Target.transform.position);
-            //
-            //
-            // if ( Vector3.Dot(  Game.I.CamTrk.GetRailForward(),  Target.transform.position - transform.position  ) > 0 )
-            // {
-            //     // Behind frame
-            //     // Cull
-            //
-            //     GPUInstancerAPI.UnregisterPrefabInstanceList(prefabManager, asteroidInstances);
-            //     GPUInstancerAPI.InitializeGPUInstancer(prefabManager);
-            //
-            //     Destroy(gameObject);
-            // }
-            //
-            //
-            // print("d " + TargetDistance + " " + Vector3.Dot(  Game.I.CamTrk.GetRailForward(),  Target.transform.position - transform.position  ) );
-
-        }
-
-        private GPUInstancerPrefab InstantiateOnRay(Vector3 start, Vector3 dir, float dist)
+        private void SetRandomPosInCircle(Vector3 center, int column, float radius)
         {
-            allocatedPos = start + (dir * dist);
-            allocatedRot = Quaternion.identity; //Quaternion.FromToRotation(Vector3.forward, start - allocatedPos);
+            float ang = Random.value * 360;
 
-            // cast a ray from start
+            allocatedPos.x = center.x + radius * Mathf.Sin(ang * Mathf.Deg2Rad);
+            allocatedPos.y = center.y - (column * (float)columnSpace / 2) + (column * columnSpace) + Random.Range(0f, 1f);
+            allocatedPos.z = center.z + radius * Mathf.Cos(ang * Mathf.Deg2Rad);
+        }
 
-
+        private GPUInstancerPrefab InstantiateInCircle(Vector3 center, int column)
+        {
+            SetRandomPosInCircle(center, column - Mathf.FloorToInt(columnSize / 2f), Random.Range(80.0f, 150f));
+            allocatedRot = Quaternion.FromToRotation(Vector3.forward, center - allocatedPos);
             allocatedGO = Instantiate(asteroidObjects[Random.Range(0, asteroidObjects.Count)], allocatedPos, allocatedRot);
-
             allocatedGO.transform.parent = goParent.transform;
 
-            // allocatedLocalEulerRot.x = Random.Range(-180f, 180f);
-            // allocatedLocalEulerRot.y = Random.Range(-180f, 180f);
-            // allocatedLocalEulerRot.z = Random.Range(-180f, 180f);
-            // allocatedGO.transform.localRotation = Quaternion.Euler(allocatedLocalEulerRot);
+            allocatedLocalEulerRot.x = Random.Range(-180f, 180f);
+            allocatedLocalEulerRot.y = Random.Range(-180f, 180f);
+            allocatedLocalEulerRot.z = Random.Range(-180f, 180f);
+            allocatedGO.transform.localRotation = Quaternion.Euler(allocatedLocalEulerRot);
 
-            // allocatedLocalScaleFactor = Random.Range(0.3f, 1.2f);
-            // allocatedLocalScale.x = allocatedLocalScaleFactor;
-            // allocatedLocalScale.y = allocatedLocalScaleFactor;
-            // allocatedLocalScale.z = allocatedLocalScaleFactor;
-            // allocatedGO.transform.localScale = allocatedLocalScale;
+            allocatedLocalScaleFactor = Random.Range(0.3f, 1.2f);
+            allocatedLocalScale.x = allocatedLocalScaleFactor;
+            allocatedLocalScale.y = allocatedLocalScaleFactor;
+            allocatedLocalScale.z = allocatedLocalScaleFactor;
+            allocatedGO.transform.localScale = allocatedLocalScale;
 
             instantiatedCount++;
 

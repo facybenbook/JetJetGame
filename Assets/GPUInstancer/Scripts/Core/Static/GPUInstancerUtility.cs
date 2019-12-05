@@ -195,7 +195,7 @@ namespace GPUInstancer
                 lod++;
             }
         }
-
+        
         private static void SetAppendBuffersVulkan<T>(T runtimeData) where T : GPUInstancerRuntimeData
         {
             for (int lod = 0; lod < runtimeData.instanceLODs.Count; lod++)
@@ -207,7 +207,7 @@ namespace GPUInstancer
                         runtimeData.instanceLODs[lod].transformationMatrixAppendBuffer.Release();
 
                     runtimeData.instanceLODs[lod].transformationMatrixAppendBuffer = new ComputeBuffer(runtimeData.bufferSize, GPUInstancerConstants.STRIDE_SIZE_MATRIX4X4, ComputeBufferType.Append);
-
+                    
                     if (runtimeData.hasShadowCasterBuffer)
                     {
                         if (runtimeData.instanceLODs[lod].shadowAppendBuffer != null)
@@ -230,7 +230,7 @@ namespace GPUInstancer
                 }
             }
         }
-
+        
         private static void SetAppendBuffersGLES3<T>(T runtimeData) where T : GPUInstancerRuntimeData
         {
             for (int lod = 0; lod < runtimeData.instanceLODs.Count; lod++)
@@ -301,7 +301,7 @@ namespace GPUInstancer
         #endregion Set Append Buffers Platform Dependent
 
         /// <summary>
-        /// Indirectly renders matrices for all prototypes.
+        /// Indirectly renders matrices for all prototypes. 
         /// Transform matrices are sent to a compute shader which does culling operations and appends them to the GPU (Unlimited buffer size).
         /// All GPU buffers must be already initialized.
         /// </summary>
@@ -321,7 +321,7 @@ namespace GPUInstancer
         }
 
         /// <summary>
-        /// Indirectly renders matrices for all prototypes.
+        /// Indirectly renders matrices for all prototypes. 
         /// Transform matrices are sent to a compute shader which does culling operations and appends them to the GPU (Unlimited buffer size).
         /// All GPU buffers must be already initialized.
         /// </summary>
@@ -389,8 +389,8 @@ namespace GPUInstancer
 
             // Copy (overwrite) the modified instance count of the append buffer to each index of the indirect renderer buffer (argsBuffer)
             // that represents a submesh's instance count. The offset is calculated in parallel to the Graphics.DrawMeshInstancedIndirect call,
-            // which expects args[1] to be the instance count for the first LOD's first renderer. Every 5 index offset of args represents the
-            // next submesh in the renderer, followed by the next renderer and it's submeshes. After all submeshes of all renderers for the
+            // which expects args[1] to be the instance count for the first LOD's first renderer. Every 5 index offset of args represents the 
+            // next submesh in the renderer, followed by the next renderer and it's submeshes. After all submeshes of all renderers for the 
             // first LOD, the other LODs follow in the same manner.
             // For reference, see: https://docs.unity3d.com/ScriptReference/ComputeBuffer.CopyCount.html
 
@@ -565,7 +565,7 @@ namespace GPUInstancer
         }
 
         public static void GPUIDrawMeshInstancedIndirect<T>(List<T> runtimeDataList, Bounds instancingBounds, GPUInstancerCameraData cameraData, int layerMask = ~0,
-            bool lightProbeDisabled = false)
+            bool lightProbeDisabled = false) 
             where T : GPUInstancerRuntimeData
         {
             if (runtimeDataList == null)
@@ -631,7 +631,7 @@ namespace GPUInstancer
                 }
             }
         }
-
+        
         public static void DispatchBufferToTexture<T>(List<T> runtimeDataList, ComputeShader bufferToTextureComputeShader, int bufferToTextureComputeKernelID) where T : GPUInstancerRuntimeData
         {
             if (runtimeDataList == null)
@@ -665,7 +665,7 @@ namespace GPUInstancer
                         bufferToTextureComputeShader.Dispatch(bufferToTextureComputeKernelID, Mathf.CeilToInt(runtimeData.bufferSize / GPUInstancerConstants.COMPUTE_SHADER_THREAD_COUNT), 1, 1);
                     }
                 }
-            }
+            }                
         }
 
 
@@ -700,7 +700,7 @@ namespace GPUInstancer
                     if (runtimeData.instanceLODs[lod].transformationMatrixAppendBuffer != null)
                         runtimeData.instanceLODs[lod].transformationMatrixAppendBuffer.Release();
                     runtimeData.instanceLODs[lod].transformationMatrixAppendBuffer = null;
-
+                    
                     if (runtimeData.instanceLODs[lod].transformationMatrixAppendTexture != null)
                         UnityEngine.Object.DestroyImmediate(runtimeData.instanceLODs[lod].transformationMatrixAppendTexture);
                     runtimeData.instanceLODs[lod].transformationMatrixAppendTexture = null;
@@ -1353,7 +1353,7 @@ namespace GPUInstancer
             if (treePrototype.treeType == GPUInstancerTreeType.None)
                 treePrototype.treeType = GPUInstancerTreeType.MeshTree;
 
-            //if (treePrototypeType == GPUInstancerTreeType.SpeedTree)
+            //if (treePrototypeType == GPUInstancerTreeType.SpeedTree) 
             //    treePrototype.lodBiasAdjustment = 0.5f;
 
             treePrototype.isLODCrossFade = true;
@@ -1373,7 +1373,7 @@ namespace GPUInstancer
             GenerateInstancedShadersForGameObject(treePrototype);
         }
 
-        public static void AddTreeInstanceRuntimeDataToList(List<GPUInstancerRuntimeData> runtimeDataList, List<GPUInstancerPrototype> treePrototypes,
+        public static void AddTreeInstanceRuntimeDataToList(List<GPUInstancerRuntimeData> runtimeDataList, List<GPUInstancerPrototype> treePrototypes, 
             GPUInstancerTerrainSettings terrainSettings)
         {
             for (int i = 0; i < treePrototypes.Count; i++)
@@ -1951,7 +1951,7 @@ namespace GPUInstancer
             dilationCompute.SetBool("isLinearSpace", PlayerSettings.colorSpace == ColorSpace.Linear);
 #endif
             dilationCompute.SetBool("isNormal", isNormal);
-            dilationCompute.Dispatch(dilationKernel, Mathf.CeilToInt(billboardTexture.width / (GPUInstancerConstants.COMPUTE_SHADER_THREAD_COUNT_2D * frameCount)),
+            dilationCompute.Dispatch(dilationKernel, Mathf.CeilToInt(billboardTexture.width / (GPUInstancerConstants.COMPUTE_SHADER_THREAD_COUNT_2D * frameCount)), 
                 Mathf.CeilToInt(billboardTexture.height / GPUInstancerConstants.COMPUTE_SHADER_THREAD_COUNT_2D), frameCount);
             RenderTexture.active = resultTexture;
 
@@ -2899,7 +2899,7 @@ namespace GPUInstancer
 #else
             if (GPUInstancerConstants.computeBufferSetDataPartial != null)
             {
-                GPUInstancerConstants.computeBufferSetDataPartial.SetBuffer(GPUInstancerConstants.computeBufferSetDataSingleKernelId,
+                GPUInstancerConstants.computeBufferSetDataPartial.SetBuffer(GPUInstancerConstants.computeBufferSetDataSingleKernelId, 
                     GPUInstancerConstants.VisibilityKernelPoperties.INSTANCE_DATA_BUFFER, computeBuffer);
                 GPUInstancerConstants.computeBufferSetDataPartial.SetFloats(GPUInstancerConstants.SetDataKernelProperties.BUFFER_PARAMETER_DATA_TO_SET,
                     data[managedBufferStartIndex].m00,
@@ -2967,7 +2967,7 @@ namespace GPUInstancer
         {
             // create a new buffer with the combined size
             ComputeBuffer mergedBuffer = new ComputeBuffer(computeBuffer.count + bufferToMerge.count, computeBuffer.stride);
-
+            
             // Set the first buffers's data to the new buffer
             GPUInstancerConstants.computeBufferSetDataPartial.SetBuffer(GPUInstancerConstants.computeBufferSetDataPartialKernelId, GPUInstancerConstants.VisibilityKernelPoperties.INSTANCE_DATA_BUFFER, mergedBuffer);
             GPUInstancerConstants.computeBufferSetDataPartial.SetBuffer(GPUInstancerConstants.computeBufferSetDataPartialKernelId, GPUInstancerConstants.SetDataKernelProperties.BUFFER_PARAMETER_MANAGED_BUFFER_DATA, computeBuffer);
@@ -3051,8 +3051,6 @@ namespace GPUInstancer
         //Dispatch Compute Shader to remove instances inside box collider
         public static void RemoveInstancesInsideBoxCollider(ComputeBuffer instanceDataBuffer, BoxCollider boxCollider, float offset)
         {
-
-            //Debug.Log("RemoveInstancesInsideBoxCollider");
             if (instanceDataBuffer != null)
             {
                 GPUInstancerConstants.computeRuntimeModification.SetBuffer(GPUInstancerConstants.computeRemoveInsideBoxId,
@@ -3439,7 +3437,7 @@ namespace GPUInstancer
 #endif
         }
         #endregion Version Control
-
+        
         #region Platform Dependent
 
         public static void SetPlatformDependentVariables()
@@ -3556,7 +3554,7 @@ namespace GPUInstancer
                 fs.Close();
                 AssetDatabase.ImportAsset(cgincPlatformDependentPath, ImportAssetOptions.ForceUpdate);
             }
-
+            
             AssetDatabase.Refresh();
 #endif
         }

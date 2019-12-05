@@ -10,12 +10,10 @@ Shader "GPUInstancer/ColorVariationShader" {
 		LOD 200
 
 		CGPROGRAM
-#include "UnityCG.cginc"
-#include "./../../../Shaders/Include/GPUInstancerInclude.cginc"
-#pragma instancing_options procedural:setupGPUI
-#pragma multi_compile_instancing
-#include "UnityCG.cginc"
 		#include "UnityCG.cginc"
+		#include "./../../../Shaders/Include/GPUInstancerInclude.cginc"
+		#pragma instancing_options procedural:setupGPUI
+		#pragma multi_compile_instancing
 		#pragma surface surf Standard addshadow fullforwardshadows vertex:colorVariationVert
 
 		#pragma target 3.0

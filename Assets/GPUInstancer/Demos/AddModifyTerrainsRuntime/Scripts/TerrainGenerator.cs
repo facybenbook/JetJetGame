@@ -17,6 +17,7 @@ namespace GPUInstancer
         private Vector3 terrainShiftZ;
         private Terrain[] terrainArray;
         private bool isCurrentCameraFixed = true;
+        private float[,,] alphaMap;
 
         #region Prototype settings
 
@@ -541,10 +542,28 @@ namespace GPUInstancer
             Terrain terrain = terrainGameObject.AddComponent<Terrain>();
             TerrainCollider terrainCollider = terrainGameObject.AddComponent<TerrainCollider>();
 
+#if UNITY_2019_2_OR_NEWER || UNITY_2018_4
+            terrain.materialTemplate = new Material(Shader.Find("Nature/Terrain/Standard"));
+#endif
             TerrainData terrainData = CreateTerrainData(terrainSize, terrainHeight, baseTextureResolution, detailResolutionPerPatch, splatPrototypes, detailPrototypes);
 
             terrainCollider.terrainData = terrainData;
             terrain.terrainData = terrainData;
+
+#if UNITY_2019_2_OR_NEWER || UNITY_2018_4
+            if (alphaMap == null)
+            {
+                alphaMap = new float[terrainSize, terrainSize, 1];
+                for (int i = 0; i < terrainSize; i++)
+                {
+                    for (int j = 0; j < terrainSize; j++)
+                    {
+                        alphaMap[i, j, 0] = 1;
+                    }
+                }
+            }
+            terrain.terrainData.SetAlphamaps(0, 0, alphaMap);
+#endif
 
             return terrain;
         }

@@ -13,7 +13,7 @@ namespace Gaia.GX.GurBuTechnologies
     /// </summary>
     public class GPUInstancerGaiaExtension : MonoBehaviour
     {
-        #region Generic informational methods
+#region Generic informational methods
 
         public static void GX_About()
         {
@@ -40,31 +40,13 @@ namespace Gaia.GX.GurBuTechnologies
             return GPUInstancerEditorConstants.PACKAGE_NAME;
         }
 
-        #endregion
+#endregion
 
-        #region GX Buttons
+#region GX Buttons
 
         public static void GX_ImportToPrefabManager()
         {
-            List<GameObject> prefabList = new List<GameObject>();
-
-            Spawner[] gaiaSpawners = FindObjectsOfType<Spawner>();
-            foreach (Spawner sw in gaiaSpawners)
-            {
-                foreach (SpawnRule sr in sw.m_spawnerRules)
-                {
-                    if (sr.m_resourceType == GaiaConstants.SpawnerResourceType.GameObject)
-                    {
-                        foreach (ResourceProtoGameObjectInstance ri in sw.m_resources.m_gameObjectPrototypes[sr.m_resourceIdx].m_instances)
-                        {
-                            if (ri.m_desktopPrefab != null && !prefabList.Contains(ri.m_desktopPrefab))
-                                prefabList.Add(ri.m_desktopPrefab);
-                        }
-                    }
-                }
-            }
-
-            GPUInstancerPrefabImporterWindow.ShowWindow(prefabList, "GPU Instancer Gaia Prefab Importer");
+            GPUInstancerEditorConstants.ToolbarShowPrefabImporter();
         }
 
         public static void GX_ImportToTreeManager()
@@ -77,7 +59,7 @@ namespace Gaia.GX.GurBuTechnologies
             GPUInstancerEditorConstants.ToolbarAddDetailManager();
         }
 
-        #endregion GX Buttons
+#endregion GX Buttons
     }
 }
 #endif

@@ -54,7 +54,7 @@ namespace GPUInstancer
             {
                 if (_prefabManager == null)
                     _prefabManager = GetPrefabManager();
-                if (_prefabManager != null)
+                if (_prefabManager != null && !_prefabManager.isQuiting)
                     _prefabManager.RemovePrefabInstance(gpuiPrefab, false);
             }
         }

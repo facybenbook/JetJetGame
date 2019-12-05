@@ -297,7 +297,7 @@ MonoBehaviour:
     billboardFaceCamPos: 0
   isBillboardDisabled: 0
   useGeneratedBillboard: 0
-  checkedForBillboardExtensions: 1
+  checkedForBillboardExtensions: 0
   autoUpdateTransformData: 0
   treeType: 0
   warningText: 
@@ -603,7 +603,7 @@ MonoBehaviour:
     billboardFaceCamPos: 0
   isBillboardDisabled: 0
   useGeneratedBillboard: 0
-  checkedForBillboardExtensions: 1
+  checkedForBillboardExtensions: 0
   autoUpdateTransformData: 0
   treeType: 0
   warningText: 

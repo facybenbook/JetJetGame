@@ -20,8 +20,6 @@ Shader "GPUInstancer/AsteroidHaze"
 #include "./../../../Shaders/Include/GPUInstancerInclude.cginc"
 #pragma instancing_options procedural:setupGPUI
 #pragma multi_compile_instancing
-#include "UnityCG.cginc"
-#include "UnityCG.cginc"
 		#include "UnityShaderVariables.cginc"
 		#pragma target 3.0
 		#pragma surface surf Standard alpha:fade keepalpha noshadow nofog nometa noforwardadd vertex:vertexDataFunc 

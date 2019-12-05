@@ -86,6 +86,7 @@ namespace GPUInstancer
 #if UNITY_EDITOR && UNITY_2017_2_OR_NEWER
         public PlayModeStateChange playModeState;
 #endif
+        public bool isQuiting = false;
 
         public Dictionary<GPUInstancerPrototype, GPUInstancerRuntimeData> runtimeDataDictionary;
 
@@ -294,6 +295,10 @@ namespace GPUInstancer
             }
         }
 
+        private void OnApplicationQuit()
+        {
+            isQuiting = true;
+        }
         #endregion MonoBehaviour Methods
 
         #region Virtual Methods

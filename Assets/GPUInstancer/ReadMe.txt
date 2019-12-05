@@ -1,4 +1,4 @@
-GPU Instancer v1.2.6
+GPU Instancer v1.2.7
 Copyright ©2018 GurBu Technologies
 ---------------------------------
 Thank you for supporting GPU Instancer!
@@ -190,6 +190,14 @@ script to the scene cameras and add the setting object to this script from this 
 ---------------------------------
 CHANGE LOG
 ---------------------------------
+v1.2.7
+
+Changed: Initialize in threads default value set to false for Detail Manager (causing issues for some setups)
+
+Fixed: Occasional removal warnings when quiting the game while Auto Add/Remove Instances feature is enabled
+Fixed: Gaia integration spawner error for Pro version
+Fixed: Pink terrain on AddModifyTerrainsRuntime demo on new Unity versions
+
 v1.2.6
 
 New: Added an option to keep simulation live for the Detail Manager in Editor mode

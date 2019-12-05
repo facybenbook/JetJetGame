@@ -17,7 +17,7 @@ namespace GPUInstancer
     {
         public int detailLayer;
 
-        public bool runInThreads = true;
+        public bool runInThreads = false;
 
         private static ComputeShader _grassInstantiationComputeShader;
 
