@@ -16,9 +16,6 @@ public class Airwing : MonoBehaviour
     [Tooltip("Stuff which can be hidden when the craft is exploded")]
     public GameObject ExploderBox;
 
-    [Header("Label")]
-    public TextMeshPro Label;
-
     [Header("Wings")]
     public WWing Wing;
 
@@ -97,7 +94,6 @@ public class Airwing : MonoBehaviour
 
     void Update()
     {
-        //RotateLabel();
         TimeSinceLastExplosion += Time.deltaTime;
         TimeSinceLastDamage += Time.deltaTime;
     }
@@ -544,20 +540,6 @@ public class Airwing : MonoBehaviour
     float getYaw(Quaternion c) {    return Mathf.Asin(-2*(c.x*c.z - c.w*c.y));    }
     float getRoll(Quaternion c) {   return Mathf.Atan2(2*(c.x*c.y + c.w*c.z), c.w*c.w + c.x*c.x - c.y*c.y - c.z*c.z);    }
 
-
-
-    public void RotateLabel()
-    {
-        if( Game.I.CamTrk.Airwing != null)
-            Label.transform.rotation = Quaternion.LookRotation( -(Game.I.CamTrk.Airwing.transform.position - transform.position).normalized );
-    }
-
-    public void WriteLabel(string newLabel)
-    {
-        if( Label == null)  return;
-
-        Label.text = newLabel;
-    }
 
 
 
