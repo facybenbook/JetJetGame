@@ -9,6 +9,8 @@ public class AirplaneMake : MonoBehaviour
     public int Number;
 
     public Rigidbody Target;
+    float TargetDistance = Mathf.Infinity;
+    float CullDistance = 35000f;
 
     void Start()
     {
@@ -28,5 +30,24 @@ public class AirplaneMake : MonoBehaviour
     void Update()
     {
 
+    }
+
+    //
+
+    void Observe() {
+
+        if(Target == null)
+            return;
+
+        TargetDistance = Vector3.Distance(transform.position, Target.transform.position);
+
+
+        if( InCullRange())
+            print("AIRPLANEMAKE");
+
+    }
+
+    bool InCullRange() {
+        return TargetDistance < CullDistance;
     }
 }

@@ -65,6 +65,10 @@ ShaderVariantCollection:
         passType: 0
       - keywords: _METALLICSPECGLOSSMAP
         passType: 0
+      - keywords: _SPECULAR_SETUP
+        passType: 0
+      - keywords: _EMISSION _ENVIRONMENTREFLECTIONS_OFF _RECEIVE_SHADOWS_OFF _SPECULAR_SETUP
+        passType: 0
       - keywords: _NORMALMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
         passType: 0
       - keywords: _METALLICSPECGLOSSMAP _NORMALMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
@@ -74,6 +78,8 @@ ShaderVariantCollection:
       - keywords: _SPECULAR_SETUP
         passType: 0
       - keywords: _EMISSION _ENVIRONMENTREFLECTIONS_OFF _RECEIVE_SHADOWS_OFF _SPECULAR_SETUP
+        passType: 0
+      - keywords: _ENVIRONMENTREFLECTIONS_OFF _RECEIVE_SHADOWS_OFF _SPECULARHIGHLIGHTS_OFF
         passType: 0
   - first: {fileID: 4800000, guid: 73eb055e9923d4c469180bc622378d46, type: 3}
     second:

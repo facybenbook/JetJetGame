@@ -1,8 +1,3 @@
-﻿//
-// Copyright (c) Brian Hernandez. All rights reserved.
-// Licensed under the MIT license. See LICENSE file in the project root for details.
-//
-
 using UnityEngine;
 
 public class WWing : MonoBehaviour
@@ -63,7 +58,6 @@ public class WWing : MonoBehaviour
 
 	private void Awake()
 	{
-		// Wings affect the center of mass of the overall rigidbody
 		rigid = GetComponentInParent<Rigidbody>();
 	}
 
@@ -82,7 +76,6 @@ public class WWing : MonoBehaviour
 
 	private void Update()
 	{
-		// Prevent division by zero
 		if (dimensions.x <= 0.0f)
 			dimensions.x = 0.01f;
 		if (dimensions.y <= 0.0f)
@@ -119,23 +112,18 @@ public class WWing : MonoBehaviour
 		Vector3 localVelocity = transform.InverseTransformDirection(rigid.GetPointVelocity(transform.position));
 		localVelocity.x = 0.0f;
 
-		// Angle of attack is used as the look up for the lift and drag curves
 		angleOfAttack = Vector3.Angle(Vector3.forward, localVelocity);
 		liftCoefficient = wing.GetLiftAtAaoA(angleOfAttack);
 		dragCoefficient = wing.GetDragAtAaoA(angleOfAttack);
 
-		// Calculate lift/drag
 		liftForce = localVelocity.sqrMagnitude * liftCoefficient * WingArea * liftMultiplier;
 		dragForce = localVelocity.sqrMagnitude * dragCoefficient * WingArea * dragMultiplier;
 
-		// Vector3.Angle always returns a positive value, so add the sign back in
 		liftForce *= -Mathf.Sign(localVelocity.y);
 
-		// Lift is always perpendicular to air flow
 		Vector3 liftDirection = Vector3.Cross(rigid.velocity, transform.right).normalized;
 		rigid.AddForceAtPosition(liftDirection * liftForce, forceApplyPos, ForceMode.Force);
 
-		// Drag is always opposite of the velocity
 		rigid.AddForceAtPosition(-rigid.velocity.normalized * dragForce, forceApplyPos, ForceMode.Force);
 
 	}

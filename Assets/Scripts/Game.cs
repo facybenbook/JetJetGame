@@ -82,6 +82,8 @@ public class Game : MonoBehaviour
         Time.timeScale = 1;
         CamTrk.Cam.GetComponent<Camera>().farClipPlane = 200000f;
 
+
+
         LockCursor();
         MainMenu.SetActive(false);
         AimHUD.SetActive(true);

@@ -1,8 +1,3 @@
-﻿//
-// Copyright (c) Brian Hernandez. All rights reserved.
-// Licensed under the MIT license. See LICENSE file in the project root for details.
-//
-
 #if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
@@ -50,7 +45,6 @@ public class WCurveEdit : Editor
 		flatPlateMult = EditorGUILayout.FloatField(new GUIContent("Flat Plate Lift Multiplier: ", kFlatPlateMultDesc), flatPlateMult);
 		negativeAoaMult = EditorGUILayout.FloatField(new GUIContent("Negative AOA Multiplier: ", kNegAoaMultDesc), negativeAoaMult);
 
-		// Error checking. Prevent keys from going in out of order and try to maintain a sorta normal line.
 		if (fullyStalledAngle < criticalAngle)
 			fullyStalledAngle = criticalAngle + 0.1f;
 
@@ -59,20 +53,16 @@ public class WCurveEdit : Editor
 
 		flatPlateMult = Mathf.Clamp(flatPlateMult, 0.0f, 100.0f);
 
-		// Build graph
 		List<Keyframe> keyList = new List<Keyframe>(9)
 		{
-			// Wing at positive AOA.
 			new Keyframe(0.0f, neutralLift),
 			new Keyframe(criticalAngle, maxLiftPositive),
 			new Keyframe(fullyStalledAngle, minLiftPositive),
 
-			// Flat plate, generic across all wings.
 			new Keyframe(45.0f, kflatPlateMax * flatPlateMult),
 			new Keyframe(90.0f, 0.0f),
 			new Keyframe(135.0f, -kflatPlateMax * flatPlateMult),
 
-			// Wing at negative AOA.
 			new Keyframe(180.0f - fullyStalledAngle, -minLiftPositive * negativeAoaMult),
 			new Keyframe(180.0f - criticalAngle, -maxLiftPositive * negativeAoaMult),
 			new Keyframe(180.0f, neutralLift)

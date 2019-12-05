@@ -7,7 +7,6 @@ public class Aircar : MonoBehaviour {
     public Rigidbody Target;
 
     protected float TargetDistance = Mathf.Infinity;
-    float CullDistance = 35000f;
 
     public string team;
 
