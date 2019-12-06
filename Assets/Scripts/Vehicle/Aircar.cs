@@ -71,7 +71,7 @@ public class Aircar : MonoBehaviour {
 
 
     [HideInInspector]
-    public Integrity bodyIntegrity;
+    public CanHealth bodyCanHealth;
     [HideInInspector]
     private float currentTerrainY;
     [HideInInspector]
@@ -81,7 +81,7 @@ public class Aircar : MonoBehaviour {
     //
 
     public void Awake() {
-        bodyIntegrity = GetComponent<Integrity>();
+        bodyCanHealth = GetComponent<CanHealth>();
         targetPos = transform.position;
 
         InvokeRepeating("Observe", 0, 0.5f);

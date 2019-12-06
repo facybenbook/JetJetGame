@@ -60,30 +60,17 @@ public class Fighter : Airplane
 
 
     void Observe() {
+        // print("Observe");
 
         if(Target == null)
             return;
 
         TargetDistance = Vector3.Distance(transform.position, Target.transform.position);
 
+        //print("d " + TargetDistance + " " + Vector3.Dot(  Game.I.CamTrk.GetRailForward(),  Target.transform.position - transform.position  ) );
 
-        if ( Vector3.Dot(  Game.I.CamTrk.GetRailForward(),  Target.transform.position - transform.position  ) > 0 )
-        {
-            // Behind frame
-            // Cull
-            Destroy(gameObject);
-        }
-
-
-    //    print("d " + TargetDistance + " " + Vector3.Dot(  Game.I.CamTrk.GetRailForward(),  Target.transform.position - transform.position  ) );
-
-        if( !base.Live && InCullRange()) {
-            base.On(); return; }
-
-        if( Mode != M.Observing || !base.Live)
+        if( Mode != M.Observing)
             return;
-
-        // print("Observe");
 
         if( InFireRange())
             Attack();
@@ -138,8 +125,6 @@ public class Fighter : Airplane
     void OnGUI()
     {
         if(!DrawGUI) return;
-
-        if(!base.Live) return;
 
         guistyle.normal.textColor = Color.blue;
         guistyle.alignment = TextAnchor.MiddleCenter;

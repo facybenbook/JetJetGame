@@ -48,14 +48,14 @@ public class Projectile : MonoBehaviour
         transform.position = hitpositon;
 
         // Opposing Aircar aircraft
-        if ( hit.collider.GetComponentInParent<Integrity>() != null && hit.collider.GetComponentInParent<Integrity>().team != team)
+        if ( hit.collider.GetComponentInParent<CanHealth>() != null && hit.collider.GetComponentInParent<CanHealth>().team != team)
         {
-            hit.collider.GetComponentInParent<Integrity>().TakeDamage(1);
+            hit.collider.GetComponentInParent<CanHealth>().TakeDamage(1);
             Spark(hitpositon); //print(hit.collider + " received Opposition Fire from: " + team);
 
         }
         // Friendly Aircar aircraft
-        else if ( hit.collider.GetComponentInParent<Integrity>() != null && hit.collider.GetComponentInParent<Integrity>().team == team)
+        else if ( hit.collider.GetComponentInParent<CanHealth>() != null && hit.collider.GetComponentInParent<CanHealth>().team == team)
         {
             //print(hit.collider + " received Friendly Fire from: " + team);
         }

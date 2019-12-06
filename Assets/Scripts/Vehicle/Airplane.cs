@@ -17,22 +17,16 @@ public class Airplane : MonoBehaviour
     float yaw = 0f;
     float roll = 0f;
 
-    protected BoxCollider[] colliders;
-    protected MeshRenderer[] meshes;
-    protected Rigidbody rigid;
-
     protected Vector3 AimPos = new Vector3(0, 100000f, 0);
 
-    protected bool Live;
+    protected Rigidbody rigid;
+
 
     //
 
     void Awake()
     {
         rigid = GetComponent<Rigidbody>();
-        meshes = GetComponentsInChildren<MeshRenderer>();
-        colliders =  GetComponentsInChildren<BoxCollider>();
-        Off();
     }
 
     public virtual void Update() { }
@@ -84,33 +78,10 @@ public class Airplane : MonoBehaviour
     public void Death() {
 
         GameObject explosionObject = (GameObject)Instantiate(Resources.Load("Explosion/1Explosion"), transform.position, transform.rotation);
-        GameObject.Destroy(explosionObject, 6f);
+        GameObject.Destroy(explosionObject, 4f);
 
         GameObject.Destroy(gameObject);
     }
-
-    protected void Off()
-    {
-        //print("Off");
-
-        foreach(BoxCollider b in colliders)  b.enabled = false;
-        foreach(MeshRenderer m in meshes)  m.enabled = false;
-        rigid.isKinematic = true;
-
-        Live = false;
-    }
-
-    protected void On()
-    {
-        // print("On");
-
-        foreach(BoxCollider b in colliders)  b.enabled = true;
-        foreach(MeshRenderer m in meshes)  m.enabled = true;
-        rigid.isKinematic = false;
-
-        Live = true;
-    }
-
 
 
 }
