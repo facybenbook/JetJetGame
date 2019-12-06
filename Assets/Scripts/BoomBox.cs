@@ -67,7 +67,7 @@ public class BoomBox : MonoBehaviour
 
     public void PlayEngines()
     {
-        //print("PlayEngines");
+        print("PlayEngines");
 
         EnginesOn = true;
         //
@@ -88,7 +88,7 @@ public class BoomBox : MonoBehaviour
 
     public void PauseEngines()
     {
-        //print("PauseEngines");
+        print("PauseEngines");
 
         EnginesOn = false;
 

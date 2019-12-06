@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1392042988497160440}
   - component: {fileID: 2380151073765998211}
   - component: {fileID: 9191168536020669640}
-  - component: {fileID: 7061887372766969976}
   m_Layer: 0
   m_Name: 4000_BuildingA.032
   m_TagString: Untagged
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5368786993369936328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -63000, y: 0, z: -18000}
-  m_LocalScale: {x: 3200.5398, y: 3200.5398, z: 3200.5398}
+  m_LocalScale: {x: 7000, y: 7000, z: 7000}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -95,16 +94,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 2717117401388308962, guid: 8881a229680d2a44eabf88627c8c31eb, type: 3}
---- !u!114 &7061887372766969976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5368786993369936328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45d0ef053ef0a334bb5fec18f77fdbc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CullDistance: 65000

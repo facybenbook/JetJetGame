@@ -58,9 +58,6 @@ public class Airplane : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(rigid == null)
-            return;
-            
         rigid.AddRelativeForce(Vector3.forward * thrust * forceMult, ForceMode.Force);
         rigid.AddRelativeTorque(new Vector3(turnTorque.x * pitch,
                                             turnTorque.y * yaw,
