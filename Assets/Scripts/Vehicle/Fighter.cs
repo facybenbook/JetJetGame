@@ -30,6 +30,15 @@ public class Fighter : Airplane
 
     //
 
+    void Awake()
+    {
+        if(Game.I.CamTrk != null && Game.I.CamTrk.Airwing != null )
+            Target = Game.I.CamTrk.Airwing.GetComponent<Rigidbody>();
+
+        if(Target == null)
+            print(gameObject.name + " cannot find Airwing.GetComponent<Rigidbody>() for CanCull");
+    }
+
     void Start()
     {
         InvokeRepeating("Observe", 0, 0.5f);
@@ -55,9 +64,8 @@ public class Fighter : Airplane
 
     public void SetTarget(Rigidbody trg) {
         //print("SetTarget");
-        
+
         Target = trg;
-        GetComponent<CanCull>().Target = trg;
     }
 
 

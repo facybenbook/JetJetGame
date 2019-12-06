@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 58269794692412848}
   - component: {fileID: 8777877251498493348}
   - component: {fileID: 1876449699976805674}
+  - component: {fileID: 35907885932542009}
   m_Layer: 0
   m_Name: 4000_BuildingA.212
   m_TagString: Untagged
@@ -55,6 +56,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -93,3 +95,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -7464458381835036547, guid: 8881a229680d2a44eabf88627c8c31eb, type: 3}
+--- !u!114 &35907885932542009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7771155222198809904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45d0ef053ef0a334bb5fec18f77fdbc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CullDistance: 65000

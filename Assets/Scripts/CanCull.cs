@@ -5,7 +5,7 @@ using UnityEngine;
 public class CanCull : MonoBehaviour
 {
 
-    public Rigidbody Target = null;
+    private Rigidbody Target;
     public float CullDistance = 35000f;
     float TargetDistance = Mathf.Infinity;
 
@@ -27,7 +27,14 @@ public class CanCull : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("Observe", 0, 0.5f);
+        if(Game.I.CamTrk != null && Game.I.CamTrk.Airwing != null )
+            Target = Game.I.CamTrk.Airwing.GetComponent<Rigidbody>();
+
+        if(Target == null)
+            print(gameObject.name + " cannot find Airwing.GetComponent<Rigidbody>() for CanCull");
+
+        float ObserveTime = 3f;
+        InvokeRepeating("Observe", Random.Range(0, ObserveTime), ObserveTime);
     }
 
     void Update()
@@ -77,6 +84,8 @@ public class CanCull : MonoBehaviour
             return;
 
         TargetDistance = Vector3.Distance(transform.position, Target.transform.position);
+
+        // print( gameObject.name + " " + Vector3.Dot(  Game.I.CamTrk.GetRailForward(),  Target.transform.position - transform.position  ) );
 
         if ( Vector3.Dot(  Game.I.CamTrk.GetRailForward(),  Target.transform.position - transform.position  ) > 0 )
         {   //print ("Destory " + gameObject.name);
