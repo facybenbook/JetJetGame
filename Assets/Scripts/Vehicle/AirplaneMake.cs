@@ -18,7 +18,6 @@ public class AirplaneMake : MonoBehaviour
             Fighter newFi = GameObject.Instantiate(FighterType).GetComponent<Fighter>();
             newFi.transform.position = transform.position + (Vector3.up * 5000f);
             newFi.transform.rotation = Quaternion.identity;
-            newFi.SetTarget(Target);
             newFi.IdleDirection = transform.forward;
             i++;
         }

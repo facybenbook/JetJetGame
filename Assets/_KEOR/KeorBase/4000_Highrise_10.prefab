@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7343445714777781772}
   - component: {fileID: 7240570075604881966}
   - component: {fileID: 6564286588386524481}
+  - component: {fileID: 2491686967360446985}
   m_Layer: 0
   m_Name: 4000_Highrise_10
   m_TagString: Untagged
@@ -94,3 +95,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -7317000458051551197, guid: 8881a229680d2a44eabf88627c8c31eb, type: 3}
+--- !u!114 &2491686967360446985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5054027701367013572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45d0ef053ef0a334bb5fec18f77fdbc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CullDistance: 65000
