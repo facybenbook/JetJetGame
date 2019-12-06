@@ -39,28 +39,28 @@ public class CanCull : MonoBehaviour
 
     void Off()
     {
-        gobj.SetActive(false);
+        //gobj.SetActive(false);
 
-        // if(colliders != null)
-        //     foreach(BoxCollider b in colliders)  b.enabled = false;
-        // if(meshes != null)
-        //     foreach(MeshRenderer m in meshes)  m.enabled = false;
-        // if(rigid != null)
-        //     rigid.isKinematic = true;
+        if(colliders != null)
+            foreach(BoxCollider b in colliders)  b.enabled = false;
+        if(meshes != null)
+            foreach(MeshRenderer m in meshes)  m.enabled = false;
+        if(rigid != null)
+            rigid.isKinematic = true;
 
         Live = false;
     }
 
     void On()
     {
-        gobj.SetActive(true);
+        //gobj.SetActive(true);
 
-        // if(colliders != null)
-        //     foreach(BoxCollider b in colliders)  b.enabled = true;
-        // if(meshes != null)
-        //     foreach(MeshRenderer m in meshes)  m.enabled = true;
-        // if(rigid != null)
-        //     rigid.isKinematic = false;
+        if(colliders != null)
+            foreach(BoxCollider b in colliders)  b.enabled = true;
+        if(meshes != null)
+            foreach(MeshRenderer m in meshes)  m.enabled = true;
+        if(rigid != null)
+            rigid.isKinematic = false;
 
         Live = true;
     }
@@ -71,15 +71,20 @@ public class CanCull : MonoBehaviour
 
     void Observe() {
 
+        //print("Observe Can Cull");
+
         if(Target == null)
             return;
 
         TargetDistance = Vector3.Distance(transform.position, Target.transform.position);
 
         if ( Vector3.Dot(  Game.I.CamTrk.GetRailForward(),  Target.transform.position - transform.position  ) > 0 )
+        {   //print ("Destory " + gameObject.name);
             Destroy(gameObject);
+            return;
             // Behind frame
             // Cull
+        }
 
         if( !Live && InCullRange())
             On();

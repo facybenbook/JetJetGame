@@ -307,6 +307,7 @@ GameObject:
   - component: {fileID: 54841044653712042}
   - component: {fileID: 8481089828699063919}
   - component: {fileID: 866847711}
+  - component: {fileID: 1330492382412100155}
   m_Layer: 0
   m_Name: Fighter
   m_TagString: Untagged
@@ -384,6 +385,20 @@ MonoBehaviour:
   AttackDistance: 20000
   attackTime: 0.5
   Projectile: {fileID: 1142952893375712, guid: f063764b7e89e1e47ae3ffd7ad3b926c, type: 3}
+--- !u!114 &1330492382412100155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630319604630382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45d0ef053ef0a334bb5fec18f77fdbc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 0}
+  CullDistance: 25000
 --- !u!1 &1693954784331664
 GameObject:
   m_ObjectHideFlags: 0

@@ -49,7 +49,7 @@ public class Game : MonoBehaviour
         AimHUD.SetActive(false);
         CamTrk.ControlCanvas.SetActive(false);
 
-        StartCoroutine( StartingMenu() );
+        //StartCoroutine( StartingMenu() );
 
     }
 

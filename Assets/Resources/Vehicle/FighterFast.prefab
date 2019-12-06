@@ -7,6 +7,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 866847711, guid: 76845026de374da4aa455cd164e63143, type: 3}
+      propertyPath: forceMult
+      value: 80000
+      objectReference: {fileID: 0}
+    - target: {fileID: 866847711, guid: 76845026de374da4aa455cd164e63143, type: 3}
+      propertyPath: attackTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 866847711, guid: 76845026de374da4aa455cd164e63143, type: 3}
+      propertyPath: thrust
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 866847711, guid: 76845026de374da4aa455cd164e63143, type: 3}
+      propertyPath: turnTorque.x
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 866847711, guid: 76845026de374da4aa455cd164e63143, type: 3}
+      propertyPath: turnTorque.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 866847711, guid: 76845026de374da4aa455cd164e63143, type: 3}
+      propertyPath: turnTorque.z
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 1630319604630382, guid: 76845026de374da4aa455cd164e63143, type: 3}
       propertyPath: m_Name
       value: FighterFast
@@ -55,36 +79,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 866847711, guid: 76845026de374da4aa455cd164e63143, type: 3}
-      propertyPath: forceMult
-      value: 80000
-      objectReference: {fileID: 0}
-    - target: {fileID: 866847711, guid: 76845026de374da4aa455cd164e63143, type: 3}
-      propertyPath: attackTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 866847711, guid: 76845026de374da4aa455cd164e63143, type: 3}
-      propertyPath: thrust
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 866847711, guid: 76845026de374da4aa455cd164e63143, type: 3}
-      propertyPath: turnTorque.x
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 866847711, guid: 76845026de374da4aa455cd164e63143, type: 3}
-      propertyPath: turnTorque.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 866847711, guid: 76845026de374da4aa455cd164e63143, type: 3}
-      propertyPath: turnTorque.z
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 23093786384738662, guid: 76845026de374da4aa455cd164e63143,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0920990792c03034498a328fc1992885, type: 2}
-    - target: {fileID: 23523300321548112, guid: 76845026de374da4aa455cd164e63143,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -94,10 +89,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0920990792c03034498a328fc1992885, type: 2}
+    - target: {fileID: 23523300321548112, guid: 76845026de374da4aa455cd164e63143,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0920990792c03034498a328fc1992885, type: 2}
     - target: {fileID: 23629471462856062, guid: 76845026de374da4aa455cd164e63143,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0920990792c03034498a328fc1992885, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 603937617524919250, guid: 76845026de374da4aa455cd164e63143, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 76845026de374da4aa455cd164e63143, type: 3}

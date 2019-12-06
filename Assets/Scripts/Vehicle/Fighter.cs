@@ -55,12 +55,14 @@ public class Fighter : Airplane
 
     public void SetTarget(Rigidbody trg) {
         //print("SetTarget");
+        
         Target = trg;
+        GetComponent<CanCull>().Target = trg;
     }
 
 
     void Observe() {
-        // print("Observe");
+        //print("Observe Fighter");
 
         if(Target == null)
             return;
