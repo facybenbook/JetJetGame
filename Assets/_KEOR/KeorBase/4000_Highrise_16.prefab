@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1365043450926444426}
   - component: {fileID: 7042026765944501571}
   - component: {fileID: 54822001985961709}
-  - component: {fileID: 8631352125194720254}
   m_Layer: 0
   m_Name: 4000_Highrise_16
   m_TagString: Untagged
@@ -64,6 +63,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -102,21 +102,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -5517819501843703212, guid: 8881a229680d2a44eabf88627c8c31eb, type: 3}
---- !u!114 &8631352125194720254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393713905719772998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f13f42112a552354988a63573e49f5d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabPrototype: {fileID: 11400000, guid: 795bfa12f57d03d4888f36716084de31, type: 2}
-  gpuInstancerID: 0
-  state: 0
 --- !u!1001 &253239870175165419
 PrefabInstance:
   m_ObjectHideFlags: 0

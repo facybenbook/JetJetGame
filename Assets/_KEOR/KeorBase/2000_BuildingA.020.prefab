@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 522042985467683380}
   - component: {fileID: 8878261051008372974}
   - component: {fileID: 7103353960354897744}
-  - component: {fileID: 5589164019396998564}
   m_Layer: 0
   m_Name: 2000_BuildingA.020
   m_TagString: Untagged
@@ -56,6 +55,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -94,18 +94,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -977955405904684247, guid: 8881a229680d2a44eabf88627c8c31eb, type: 3}
---- !u!114 &5589164019396998564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6245530813421329971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f13f42112a552354988a63573e49f5d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabPrototype: {fileID: 11400000, guid: 86b670d5190b97b47a22aed8488c5ba9, type: 2}
-  gpuInstancerID: 0
-  state: 0
