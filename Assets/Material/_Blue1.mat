@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: _Blue1
-  m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: c11d53d34b0e60e4f97bc121ef544abd, type: 3}
   m_ShaderKeywords: _GLOSSYREFLECTIONS_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
@@ -88,6 +88,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _Iter: 100
     - _Metallic: 0.881
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -99,11 +100,16 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
+    - _Thickness: 2000
     - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - _Zoom: 0.65
     m_Colors:
     - _BaseColor: {r: 0.051886797, g: 0.58538586, b: 1, a: 1}
     - _Color: {r: 0.0141509175, g: 0.4030047, b: 1, a: 1}
+    - _Edge: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Interior: {r: 1, g: 1, b: 1, a: 1}
+    - _Position: {r: 0.4, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0, g: 0, b: 0, a: 1}
