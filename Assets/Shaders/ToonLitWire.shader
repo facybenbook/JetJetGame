@@ -1,4 +1,4 @@
-Shader "Xiexe/ToonLitWire" {
+Shader "JetJet/ToonLitWire" {
     Properties {
 		[Enum(Line,0,Point,1,Triangle,2)] _RenderType ("Render Mode", Int) = 0
 

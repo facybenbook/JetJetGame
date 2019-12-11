@@ -21,9 +21,10 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: _Grey1
-  m_Shader: {fileID: 4800000, guid: 2ba3cd4af65ca3e4b94ba666f4336d45, type: 3}
-  m_ShaderKeywords: _ENVIRONMENTREFLECTIONS_OFF _GLOSSYREFLECTIONS_OFF
-  m_LightmapFlags: 4
+  m_Shader: {fileID: 4800000, guid: fbe5388c068b944d8ad5def744058faf, type: 3}
+  m_ShaderKeywords: _ENVIRONMENTREFLECTIONS_OFF _GLOSSYREFLECTIONS_OFF _SMOOTHNESS_ALBEDO
+    _TESSELLATION_EDGE
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -40,6 +41,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -52,15 +57,27 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DetailTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 1, y: 1}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 1e9c11110a50c0b44b89aea901826519, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 1, y: 1}
     - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -76,12 +93,37 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _V_WIRE_AoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _V_WIRE_IBL_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _V_WIRE_NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _V_WIRE_SourceTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _V_WIRE_Tessellation_DispTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _V_WIRE_WireTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
     - _Cull: 2
     - _Cutoff: 0.5
+    - _DetailBumpScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 0
@@ -95,6 +137,7 @@ Material:
     - _OcclusionStrength: 1
     - _Offset: 0
     - _Parallax: 0.02
+    - _ParallaxStrength: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _RimPower: 3
@@ -105,15 +148,87 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
+    - _TessellationEdgeLength: 100
+    - _TessellationUniform: 1
     - _UVSec: 0
+    - _V_WIRE_Ao: 0
+    - _V_WIRE_AoStrength: 1
+    - _V_WIRE_BumpEnumID: 0
+    - _V_WIRE_DistanceFade: 0
+    - _V_WIRE_DistanceFadeEnd: 10
+    - _V_WIRE_DistanceFadeStart: 5
+    - _V_WIRE_DynamicGI: 0
+    - _V_WIRE_DynamicGIEnumID: 0
+    - _V_WIRE_DynamicGIStrength: 0
+    - _V_WIRE_DynamicMaskEffectsBaseTexEnumID: 0
+    - _V_WIRE_DynamicMaskEffectsBaseTexInvert: 0
+    - _V_WIRE_DynamicMaskEnumID: 0
+    - _V_WIRE_DynamicMaskInvert: -1
+    - _V_WIRE_DynamicMaskSmooth: 1
+    - _V_WIRE_DynamicMaskType: 1
+    - _V_WIRE_EmissionStrength: 3
+    - _V_WIRE_FixedSize: 0
+    - _V_WIRE_FresnelBias: 0
+    - _V_WIRE_FresnelEnumID: 0
+    - _V_WIRE_FresnelInvert: 0
+    - _V_WIRE_FresnelPow: 1
+    - _V_WIRE_IBLEnumID: 0
+    - _V_WIRE_IBL_Cube_Contrast: 1
+    - _V_WIRE_IBL_Cube_Intensity: 1
+    - _V_WIRE_IBL_Light_Strength: 0
+    - _V_WIRE_IBL_Roughness: 0
+    - _V_WIRE_IncludeLightEnumID: 0
+    - _V_WIRE_NormalReconstruct: 0
+    - _V_WIRE_NormalScale: 1
+    - _V_WIRE_ReflectionEnumID: 0
+    - _V_WIRE_Reflection_Fresnel_Bias: -1
+    - _V_WIRE_Reflection_Roughness: 0.3
+    - _V_WIRE_Reflection_Strength: 0.5
+    - _V_WIRE_RenderingOptions_PBREnumID: 0
+    - _V_WIRE_RenderingOptions_UnlitEnumID: 0
+    - _V_WIRE_Size: 1
+    - _V_WIRE_Source_Options: 0
+    - _V_WIRE_Tag: 0
+    - _V_WIRE_Tessellation: 2
+    - _V_WIRE_TessellationEnumID: 0
+    - _V_WIRE_Tessellation_DispStrength: 0
+    - _V_WIRE_Tessellation_EdgeLength: 16
+    - _V_WIRE_Tessellation_MaxDistance: 35
+    - _V_WIRE_Tessellation_MinDistance: 10
+    - _V_WIRE_Title_M_Options: 0
+    - _V_WIRE_Title_S_Options: 0
+    - _V_WIRE_Title_T_Options: 0
+    - _V_WIRE_Title_UAR_Options: 0
+    - _V_WIRE_Title_V_Options: 0
+    - _V_WIRE_Title_W_Options: 0
+    - _V_WIRE_TransparencyEnumID: 0
+    - _V_WIRE_Transparency_M_Options: 0
+    - _V_WIRE_TransparentTex_Alpha_Offset: 0
+    - _V_WIRE_TransparentTex_Invert: 0
+    - _V_WIRE_TryQuad: 0
+    - _V_WIRE_VertexColor: 0
+    - _V_WIRE_WireTex_UVSet: 0
+    - _V_WIRE_WireVertexColor: 0
+    - _WireframeSmoothing: 1
+    - _WireframeThickness: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 1}
-    - _Color: {r: 0.7085964, g: 0.28773582, b: 1, a: 1}
+    - _Color: {r: 0, g: 0, b: 0.9490196, a: 1}
+    - _Emission: {r: 0, g: 0, b: 0.9490196, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
     - _FresnelPower: {r: 1, g: 1, b: 1, a: 1}
     - _InnerColor: {r: 0.43323454, g: 0.8867924, b: 0.18823427, a: 0}
     - _OuterColor: {r: 1, g: 0.0990566, b: 0.87372714, a: 0}
+    - _ReflectColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _SpecColor: {r: 1, g: 0, b: 0, a: 1}
+    - _V_WIRE_Color: {r: 0.9716981, g: 0, b: 0.7449377, a: 1}
+    - _V_WIRE_MainTex_Scroll: {r: 0, g: 0, b: 0, a: 0}
+    - _V_WIRE_ObjectWorldPos: {r: 0, g: 0, b: 0, a: 0}
+    - _V_WIRE_SourceTex_Scroll: {r: 0, g: 0, b: 0, a: 0}
+    - _V_WIRE_Tessellation_DispTex_Scroll: {r: 0, g: 0, b: 0, a: 0}
+    - _V_WIRE_WireTex_Scroll: {r: 0, g: 0, b: 0, a: 0}
+    - _WireColor: {r: 1, g: 0, b: 0, a: 1}
+    - _WireframeColor: {r: 0.5690263, g: 1, b: 0.05098039, a: 1}
