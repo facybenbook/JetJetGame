@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!200 &20000000
+ShaderVariantCollection:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GPUIShaderVariantCollection
+  m_Shaders:
+  - first: {fileID: 4800000, guid: 10ed5e64fe6d3ee46be341267e8aea5b, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: _EMISSION
+        passType: 0
+      - keywords: _ALPHATEST_ON
+        passType: 0
+      - keywords: _ALPHATEST_ON _SPECULAR_SETUP
+        passType: 0
+      - keywords: _ALPHATEST_ON _NORMALMAP
+        passType: 0
+      - keywords: _NORMALMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+        passType: 0
+  - first: {fileID: 4800000, guid: 1a6ceac7f4c639b4096c21f11e4e7a56, type: 3}
+    second:
+      variants: []
+  - first: {fileID: 4800000, guid: 2a1fda71c9e820e42b9cd64424f8452e, type: 3}
+    second:
+      variants: []
+  - first: {fileID: 4800000, guid: b018d5a5e2799dd469d0d9f2474d499c, type: 3}
+    second:
+      variants:
+      - keywords: _GLOSSYREFLECTIONS_OFF
+        passType: 0
+  - first: {fileID: 4800000, guid: d52a38c4e70daf4449eaab298ba27ce6, type: 3}
+    second:
+      variants: []
+  - first: {fileID: 4800000, guid: d3fd9c0f42988514da90db63049d5f32, type: 3}
+    second:
+      variants:
+      - keywords: V_WIRE_FRESNEL_OFF V_WIRE_TESSELLATION_DISTANCE_BASED _GLOSSYREFLECTIONS_OFF
+          _SPECGLOSSMAP _SPECULARHIGHLIGHTS_OFF
+        passType: 0
+      - keywords: _ENVIRONMENTREFLECTIONS_OFF _GLOSSYREFLECTIONS_OFF _SMOOTHNESS_ALBEDO
+          _TESSELLATION_EDGE
+        passType: 0
+      - keywords: _EMISSION_MAP _ENVIRONMENTREFLECTIONS_OFF _GLOSSYREFLECTIONS_OFF
+          _SMOOTHNESS_ALBEDO _TESSELLATION_EDGE
+        passType: 0
+      - keywords: V_WIRE_SOURCE_BAKED _EMISSION _GLOSSYREFLECTIONS_OFF _SMOOTHNESS_ALBEDO
+        passType: 0

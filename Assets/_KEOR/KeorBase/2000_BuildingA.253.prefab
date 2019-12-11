@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1236940662898972109}
   - component: {fileID: 3425523310879723464}
   - component: {fileID: 3533148304677976150}
+  - component: {fileID: 1488047525902238011}
   m_Layer: 0
   m_Name: 2000_BuildingA.253
   m_TagString: Untagged
@@ -59,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1580535799172915004, guid: 8881a229680d2a44eabf88627c8c31eb, type: 3}
+  - {fileID: 2100000, guid: a2eb68c6f709ca442be785f09ce94090, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,3 +95,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -7504591688491013481, guid: 8881a229680d2a44eabf88627c8c31eb, type: 3}
+--- !u!114 &1488047525902238011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4872991891803498231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13f42112a552354988a63573e49f5d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabPrototype: {fileID: 11400000, guid: 8e4399318cdc88545ad566edba748d14, type: 2}
+  gpuInstancerID: 0
+  state: 0

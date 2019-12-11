@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3827852847505555075}
   - component: {fileID: 3801376996816489700}
   - component: {fileID: 7987346250146257643}
+  - component: {fileID: 6161510147558007241}
   m_Layer: 0
   m_Name: 2000_BuildingA.256
   m_TagString: Untagged
@@ -94,3 +95,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -2976370222117217745, guid: 8881a229680d2a44eabf88627c8c31eb, type: 3}
+--- !u!114 &6161510147558007241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6410687065501106201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13f42112a552354988a63573e49f5d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabPrototype: {fileID: 11400000, guid: 1d5df9f932e1f6b4f8db1e81f7c6a04d, type: 2}
+  gpuInstancerID: 0
+  state: 0
