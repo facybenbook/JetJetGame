@@ -37,9 +37,9 @@ MonoBehaviour:
   useOriginalShaderForShadow: 0
   cullShadows: 0
   minDistance: 0
-  maxDistance: 50000
-  isFrustumCulling: 0
-  isOcclusionCulling: 0
+  maxDistance: 70000
+  isFrustumCulling: 1
+  isOcclusionCulling: 1
   frustumOffset: 0.2
   minCullingDistance: 0
   occlusionOffset: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
   startWithRigidBody: 0
   addRemoveInstancesAtRuntime: 1
   extraBufferSize: 0
-  addRuntimeHandlerScript: 1
+  addRuntimeHandlerScript: 0
   hasRigidBody: 0
   rigidbodyData:
     useGravity: 0

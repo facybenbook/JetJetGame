@@ -298,7 +298,7 @@ Material:
     - _V_WIRE_WireVertexColor: 0
     - _VertexColorAlbedo: 0
     - _WireframeSmoothing: 1
-    - _WireframeThickness: 0
+    - _WireframeThickness: 1
     - _WireframeVal: 0.059
     - _WorkflowMode: 0
     - _ZTest: 4
@@ -309,7 +309,7 @@ Material:
     - _BackColor: {r: 1, g: 0.1273585, b: 0.1273585, a: 1}
     - _BaseColor: {r: 0, g: 0.4137542, b: 1, a: 1}
     - _Color: {r: 0, g: 0, b: 0, a: 1}
-    - _Emission: {r: 0.2901961, g: 0, b: 1.7019608, a: 1}
+    - _Emission: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
     - _FrontColor: {r: 1, g: 1, b: 1, a: 1}
@@ -332,7 +332,7 @@ Material:
     - _V_WIRE_Tessellation_DispTex_Scroll: {r: 0, g: 0, b: 0, a: 0}
     - _V_WIRE_WireTex_Scroll: {r: 0, g: 0, b: 0, a: 0}
     - _WireColor: {r: 1, g: 0, b: 0, a: 1}
-    - _WireframeColor: {r: 1, g: 1, b: 1, a: 1}
+    - _WireframeColor: {r: 0.084590435, g: 1, b: 0, a: 1}
 --- !u!114 &3641874588171217106
 MonoBehaviour:
   m_ObjectHideFlags: 11
