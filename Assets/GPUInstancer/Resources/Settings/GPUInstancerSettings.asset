@@ -31,7 +31,7 @@ MonoBehaviour:
   useCustomPreviewBackgroundColor: 0
   previewBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
   disableAutoGenerateBillboards: 0
-  disableShaderVariantCollection: 0
+  disableShaderVariantCollection: 1
   disableInstanceCountWarning: 0
   disableAutoShaderConversion: 0
   disableAutoVariantHandling: 0

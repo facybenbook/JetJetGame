@@ -17,6 +17,9 @@ public class CamTrack : MonoBehaviour
     float CamYOffsetDir = 1f;
     float ZoomZOffset = 1f;
 
+    [Header("Cam Z Rotation Parent")]
+    public GameObject ZRotate;
+
     [Header("Cam Near Far")]
     public float CamNearLimit =  10f;
     public float CamFarLimit =  2500f;
@@ -209,6 +212,9 @@ public class CamTrack : MonoBehaviour
 
         transform.position = newPos + new Vector3(0, CamYOffset * CamYOffsetDir, 0); // + NearFarAdjusted;
 
+        //print(Airwing.transform.rotation.eulerAngles.z);
+
+        //ZRotate.transform.rotation = Quaternion.Euler(0f, RailRotation.eulerAngles.y, Airwing.transform.rotation.eulerAngles.z ); //Mathf.Clamp(Airwing.transform.rotation.eulerAngles.z, -90f, 90f)
 
          // NEAR GROUND CHECK
         if (Airwing.transform.position.y <= GroundRayDistance + 100f)
