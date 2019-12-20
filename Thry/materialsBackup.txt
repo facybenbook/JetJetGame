@@ -1,3 +1,0 @@
-8e0ede097d0014a4ebda1b23d67d1d46:.poiyomi/Toon/Default/Transparent:3000
-ae0a6aabf85566a488e77e98b783e2a9:.poiyomi/Toon/Default/Cutout:2450
-fa7d1cbcbb9aee6409793e304680b05b:.poiyomi/Toon/Default/Cutout:2450
