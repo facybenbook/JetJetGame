@@ -3,9 +3,9 @@ import os
 from . Print import print2
 
 class OBJECT_OT_Rename(bpy.types.Operator):
-    """Batch Rename"""
+    """Batch Rename selected objects"""
     bl_idname = "object.rename"
-    bl_label = "Batch Rename selected objects"
+    bl_label = "Batch Rename"
     bl_options = {'REGISTER', 'UNDO'}
 
     @classmethod

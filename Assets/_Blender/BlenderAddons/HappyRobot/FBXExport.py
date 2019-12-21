@@ -3,9 +3,9 @@ import os
 from . Print import print2
 
 class OBJECT_OT_FBXExport(bpy.types.Operator):
-    """Batch FBX Exporter"""
+    """FBX Export selected to same folder as blend file"""
     bl_idname = "object.fbx_export"
-    bl_label = "Batch FBX Export selected objects to same folder as blend file"
+    bl_label = "Batch FBX Exporter"
     bl_options = {'REGISTER', 'UNDO'}
 
     @classmethod

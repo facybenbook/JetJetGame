@@ -11,6 +11,7 @@ from bpy.types import(
 from bpy.props import(IntProperty)
 
 class OBJECT_OT_Voxelize(Operator):
+    """Converts model to Voxel mesh"""
     bl_label = "Voxelize"
     bl_idname = "object.voxelize"
     bl_description = "Converts model to Voxel mesh"

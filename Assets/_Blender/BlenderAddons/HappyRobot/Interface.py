@@ -19,7 +19,7 @@ class Interface_PT_Panel(bpy.types.Panel):
         row.operator("view3d.origin_to_selection", text = "Set Origin to Selection", icon='WORLD_DATA')
 
 
-        layout.label(text= "Batch FBX Export:")
+        layout.label(text= "FBX Export:")
         row = layout.row()
         row.operator("object.fbx_export", text = "Export FBX", icon='WORLD_DATA')
 
