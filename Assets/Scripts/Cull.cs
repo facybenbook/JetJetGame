@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CanCull : MonoBehaviour
+public class Cull : MonoBehaviour
 {
 
     public Rigidbody Target = null;

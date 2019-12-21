@@ -18,7 +18,6 @@ public class LightMake : EditorWindow {
     float size = 1f;
     float spacing = 30f;
 
-    GameObject obj = null;
     MeshFilter selectedMeshFilter = null;
 
     //

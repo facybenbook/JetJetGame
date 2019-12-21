@@ -70,46 +70,77 @@ public class CityMake : MonoBehaviour
     Vector3 blockPos;
     Quaternion blockRot;
     GameObject cityGO;
-    //GameObject allocatedGO;
-    GameObject allocatedGO;
+    GameObject roadsGO;
+    GameObject samplesGO;
 
     //
 
     void Start()
     {
+
+    }
+
+    //
+
+    public void Decompile()
+    {
+        if(transform.Find("Builds"))
+            cityGO = transform.Find("Builds").gameObject;
+
+        DestroyImmediate(cityGO);
+    }
+
+    public void Compile()
+    {
+
+
         //gpuInstances.Clear();
-        cityGO = new GameObject("CityCompile");
-        cityGO.transform.position = gameObject.transform.position;
-        cityGO.transform.parent = gameObject.transform;
+        if(transform.Find("_Build"))
+            cityGO = transform.Find("_Build").gameObject;
+        if(transform.Find("Roads"))
+            roadsGO = transform.Find("Roads").gameObject;
+        if(transform.Find("Samples"))
+            roadsGO = transform.Find("Samples").gameObject;
+
+        if (cityGO == null)
+        {
+            Debug.Log("Setup _Build gameobject");
+            cityGO = new GameObject("_Build");
+            cityGO.transform.position = gameObject.transform.position;
+            cityGO.transform.parent = gameObject.transform;
+        }
+
+        if (roadsGO == null)
+        {
+            Debug.Log("Setup Roads gameobject");
+            roadsGO = new GameObject("Roads");
+            roadsGO.transform.position = gameObject.transform.position;
+            roadsGO.transform.parent = gameObject.transform;
+        }
+        if (samplesGO == null)
+        {
+            Debug.Log("Setup Samples gameobject");
+            samplesGO = new GameObject("Samples");
+            samplesGO.transform.position = gameObject.transform.position;
+            samplesGO.transform.parent = gameObject.transform;
+        }
 
         // if (prefabManager != null && prefabManager.gameObject.activeSelf && prefabManager.enabled)
         // {
-            //PerlinMake();
+            PerlinMake();
             //BorderMake();
 
             // GPUInstancerAPI.RegisterPrefabInstanceList(prefabManager, gpuInstances);
             // GPUInstancerAPI.InitializeGPUInstancer(prefabManager);
         // }
 
-        Debug.Break();
+        //Debug.Break();
     }
 
-    //
+
 
     public void PerlinMake()
     {
-
-        GameObject roads = transform.Find("Roads").gameObject;
-        GameObject build = transform.Find("Build").gameObject;
-
-        if (roads == null)
-            Debug.Log("No Roads Object");
-
-        if (build == null)
-            Debug.Log("No Build Object");
-
-        return;
-
 
         float perlin = 0;
 
@@ -161,11 +192,6 @@ public class CityMake : MonoBehaviour
                     // Ground
                     PrintSquare( 4000f, blockPos, "Ground" );
                 }
-
-                allocatedGO.transform.parent = cityGO.transform;
-                //gpuInstances.Add( allocatedGO );
-                total++;
-
             }
         }
 
@@ -178,6 +204,8 @@ public class CityMake : MonoBehaviour
         if(size < 1000f)
             return;
 
+        GameObject prefab;
+
         Debug.DrawLine(pos, pos + new Vector3(0, 10f, 0), Color.white);
 
         if( IsClear(pos, size) )
@@ -187,33 +215,33 @@ public class CityMake : MonoBehaviour
                 // 4000 block
                 if(height == "VeryTall")
                 {
-                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o4000VeryTall[i4000VeryTall%=o4000VeryTall.Count]);
+                    prefab = o4000VeryTall[i4000VeryTall%=o4000VeryTall.Count];
                     i4000VeryTall++;
                 }
                 else if(height == "Tall")
                 {
-                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o4000Tall[i4000Tall%=o4000Tall.Count]);
+                    prefab = o4000Tall[i4000Tall%=o4000Tall.Count];
                     i4000Tall++;
                 }
                 else if(height == "Medium")
                 {
-                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o4000Medium[i4000Medium%=o4000Medium.Count]);
+                    prefab = o4000Medium[i4000Medium%=o4000Medium.Count];
                     i4000Medium++;
                 }
                 else if(height == "Short")
                 {
-                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o4000Short[i4000Short%=o4000Short.Count]);
+                    prefab = o4000Short[i4000Short%=o4000Short.Count];
                     i4000Short++;
                 }
                 else if(height == "VeryShort")
                 {
-                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o4000VeryShort[i4000VeryShort%=o4000VeryShort.Count]);
+                    prefab = o4000VeryShort[i4000VeryShort%=o4000VeryShort.Count];
                     i4000VeryShort++;
                 }
                 else
                 {
                     // Ground
-                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o4000Ground[i4000Ground%=o4000Ground.Count]);
+                    prefab = o4000Ground[i4000Ground%=o4000Ground.Count];
                     i4000Ground++;
                 }
             }
@@ -222,33 +250,33 @@ public class CityMake : MonoBehaviour
                 // 2000 block
                 if(height == "VeryTall")
                 {
-                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o2000VeryTall[i2000VeryTall%=o2000VeryTall.Count]);
+                    prefab = o2000VeryTall[i2000VeryTall%=o2000VeryTall.Count];
                     i2000VeryTall++;
                 }
                 else if(height == "Tall")
                 {
-                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o2000Tall[i2000Tall%=o2000Tall.Count]);
+                    prefab = o2000Tall[i2000Tall%=o2000Tall.Count];
                     i2000Tall++;
                 }
                 else if(height == "Medium")
                 {
-                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o2000Medium[i2000Medium%=o2000Medium.Count]);
+                    prefab = o2000Medium[i2000Medium%=o2000Medium.Count];
                     i2000Medium++;
                 }
                 else if(height == "Short")
                 {
-                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o2000Short[i2000Short%=o2000Short.Count]);
+                    prefab = o2000Short[i2000Short%=o2000Short.Count];
                     i2000Short++;
                 }
                 else if(height == "VeryShort")
                 {
-                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o2000VeryShort[i2000VeryShort%=o2000VeryShort.Count]);
+                    prefab = o2000VeryShort[i2000VeryShort%=o2000VeryShort.Count];
                     i2000VeryShort++;
                 }
                 else
                 {
                     // Ground
-                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o2000Ground[i2000Ground%=o2000Ground.Count]);
+                    prefab = o2000Ground[i2000Ground%=o2000Ground.Count];
                     i2000Ground++;
                 }
             }
@@ -257,42 +285,53 @@ public class CityMake : MonoBehaviour
                 // 1000 block
                 if(height == "VeryTall")
                 {
-                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o1000VeryTall[i1000VeryTall%=o1000VeryTall.Count]);
+                    prefab = o1000VeryTall[i1000VeryTall%=o1000VeryTall.Count];
                     i1000VeryTall++;
                 }
                 else if(height == "Tall")
                 {
-                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o1000Tall[i1000Tall%=o1000Tall.Count]);
+                    prefab = o1000Tall[i1000Tall%=o1000Tall.Count];
                     i1000Tall++;
                 }
                 else if(height == "Medium")
                 {
-                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o1000Medium[i1000Medium%=o1000Medium.Count]);
+                    prefab = o1000Medium[i1000Medium%=o1000Medium.Count];
                     i1000Medium++;
                 }
                 else if(height == "Short")
                 {
-                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o1000Short[i1000Short%=o1000Short.Count]);
+                    prefab = o1000Short[i1000Short%=o1000Short.Count];
                     i1000Short++;
                 }
                 else if(height == "VeryShort")
                 {
-                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o1000VeryShort[i1000VeryShort%=o1000VeryShort.Count]);
+                    prefab = o1000VeryShort[i1000VeryShort%=o1000VeryShort.Count];
                     i1000VeryShort++;
                 }
                 else
                 {
                     // Ground
-                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o1000Ground[i1000Ground%=o1000Ground.Count]);
+                    prefab = o1000Ground[i1000Ground%=o1000Ground.Count];
                     i1000Ground++;
                 }
             }
 
-            allocatedGO.transform.position = pos;
-            allocatedGO.transform.rotation = Quaternion.identity;
-            allocatedGO.transform.parent = cityGO.transform;
-            //gpuInstances.Add( allocatedGO );
-            total++;
+            if( prefab == null )
+                Debug.Log("Error instantiating building height: "+height + " size: "+size);
+            else
+            {
+
+
+                string assetpath = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(prefab);
+                GameObject go = AssetDatabase.LoadAssetAtPath( assetpath, typeof(GameObject)) as GameObject;
+                GameObject allocatedGO = PrefabUtility.InstantiatePrefab(go) as GameObject;
+
+                allocatedGO.transform.position = pos;
+                allocatedGO.transform.rotation = Quaternion.identity;
+                allocatedGO.transform.parent = cityGO.transform;
+                //gpuInstances.Add( allocatedGO );
+                total++;
+            }
 
             return;
         }

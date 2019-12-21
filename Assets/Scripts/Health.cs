@@ -30,17 +30,13 @@ public class Health : MonoBehaviour
 
     void OnGUI()
     {
-
-        return;
-
-        Vector2 pos = Camera.main.WorldToScreenPoint(transform.position);
-
-        // Healthbar
-        GUI.color = Color.red;
-        GUI.DrawTexture(new Rect(pos.x - 10, Screen.height - pos.y - 25, startHealth , 4), healthbar);
-
-        GUI.color = Color.green;
-        GUI.DrawTexture(new Rect(pos.x - 10, Screen.height - pos.y - 25, health      , 4), healthbar);
-
+        // Vector2 pos = Camera.main.WorldToScreenPoint(transform.position);
+        //
+        // // Healthbar
+        // GUI.color = Color.red;
+        // GUI.DrawTexture(new Rect(pos.x - 10, Screen.height - pos.y - 25, startHealth , 4), healthbar);
+        //
+        // GUI.color = Color.green;
+        // GUI.DrawTexture(new Rect(pos.x - 10, Screen.height - pos.y - 25, health      , 4), healthbar);
     }
 }

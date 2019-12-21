@@ -35,7 +35,7 @@ public class Fighter : Airplane
         InvokeRepeating("Observe", 0, 0.5f);
     }
 
-    void Update()
+    public override void Update()
     {
 
         base.UpdateTick();
@@ -55,9 +55,9 @@ public class Fighter : Airplane
 
     public void SetTarget(Rigidbody trg) {
         //print("SetTarget");
-        
+
         Target = trg;
-        GetComponent<CanCull>().Target = trg;
+        GetComponent<Cull>().Target = trg;
     }
 
 

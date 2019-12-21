@@ -7,7 +7,7 @@ public class Port : MonoBehaviour {
 
     public GUIStyle GUIStyle;
 
-    public string name;
+    public string portname;
 
     public Transform[] landingSpots;
 
@@ -65,27 +65,21 @@ public class Port : MonoBehaviour {
 
     void OnGUI()
     {
-        return;
-
-        Vector2 pos;
-
-        foreach (ParkingSpot s in parkingSpots) {
-            pos = Camera.main.WorldToScreenPoint(s.spot.position);
-
-            if(s.landedAircar == null)
-                GUI.Label(new Rect(pos.x - 15, Screen.height - pos.y + 15, 60, 25), "0", GUIStyle );
-            else
-                GUI.Label(new Rect(pos.x - 15, Screen.height - pos.y + 15, 60, 25), s.landedAircar.CarState.ToString(), GUIStyle );
-        }
-
-        pos = Camera.main.WorldToScreenPoint(transform.position);
-        int yplus = 8;  int ypos = yplus;
-
-        //GUI.Label(new Rect(pos.x - 40, Screen.height - pos.y + ypos, 80, 25), "Total Spots " + parkingSpots.Count, GUIStyle );  ypos+=yplus;
-        GUI.Label(new Rect(pos.x - 40, Screen.height - pos.y + ypos, 80, 25), name, GUIStyle );  ypos+=yplus;
-
-
+        // Vector2 pos;
+        //
+        // foreach (ParkingSpot s in parkingSpots) {
+        //     pos = Camera.main.WorldToScreenPoint(s.spot.position);
+        //
+        //     if(s.landedAircar == null)
+        //         GUI.Label(new Rect(pos.x - 15, Screen.height - pos.y + 15, 60, 25), "0", GUIStyle );
+        //     else
+        //         GUI.Label(new Rect(pos.x - 15, Screen.height - pos.y + 15, 60, 25), s.landedAircar.CarState.ToString(), GUIStyle );
+        // }
+        //
+        // pos = Camera.main.WorldToScreenPoint(transform.position);
+        // int yplus = 8;  int ypos = yplus;
+        //
+        // //GUI.Label(new Rect(pos.x - 40, Screen.height - pos.y + ypos, 80, 25), "Total Spots " + parkingSpots.Count, GUIStyle );  ypos+=yplus;
+        // GUI.Label(new Rect(pos.x - 40, Screen.height - pos.y + ypos, 80, 25), portname, GUIStyle );  ypos+=yplus;
     }
-
-
 }
