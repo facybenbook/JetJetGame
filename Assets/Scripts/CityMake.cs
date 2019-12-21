@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 // using GPUInstancer;
 
 public class CityMake : MonoBehaviour
@@ -83,7 +84,7 @@ public class CityMake : MonoBehaviour
 
         // if (prefabManager != null && prefabManager.gameObject.activeSelf && prefabManager.enabled)
         // {
-            PerlinMake();
+            //PerlinMake();
             //BorderMake();
 
             // GPUInstancerAPI.RegisterPrefabInstanceList(prefabManager, gpuInstances);
@@ -95,8 +96,21 @@ public class CityMake : MonoBehaviour
 
     //
 
-    void PerlinMake()
+    public void PerlinMake()
     {
+
+        GameObject roads = transform.Find("Roads").gameObject;
+        GameObject build = transform.Find("Build").gameObject;
+
+        if (roads == null)
+            Debug.Log("No Roads Object");
+
+        if (build == null)
+            Debug.Log("No Build Object");
+
+        return;
+
+
         float perlin = 0;
 
         Vector3 origin = transform.position + ( transform.right * (blockSize/2f) );
@@ -173,33 +187,33 @@ public class CityMake : MonoBehaviour
                 // 4000 block
                 if(height == "VeryTall")
                 {
-                    allocatedGO = Instantiate(o4000VeryTall[i4000VeryTall%=o4000VeryTall.Count], pos, Quaternion.identity);
+                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o4000VeryTall[i4000VeryTall%=o4000VeryTall.Count]);
                     i4000VeryTall++;
                 }
                 else if(height == "Tall")
                 {
-                    allocatedGO = Instantiate(o4000Tall[i4000Tall%=o4000Tall.Count], pos, Quaternion.identity);
+                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o4000Tall[i4000Tall%=o4000Tall.Count]);
                     i4000Tall++;
                 }
                 else if(height == "Medium")
                 {
-                    allocatedGO = Instantiate(o4000Medium[i4000Medium%=o4000Medium.Count], pos, Quaternion.identity);
+                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o4000Medium[i4000Medium%=o4000Medium.Count]);
                     i4000Medium++;
                 }
                 else if(height == "Short")
                 {
-                    allocatedGO = Instantiate(o4000Short[i4000Short%=o4000Short.Count], pos, Quaternion.identity);
+                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o4000Short[i4000Short%=o4000Short.Count]);
                     i4000Short++;
                 }
                 else if(height == "VeryShort")
                 {
-                    allocatedGO = Instantiate(o4000VeryShort[i4000VeryShort%=o4000VeryShort.Count], pos, Quaternion.identity);
+                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o4000VeryShort[i4000VeryShort%=o4000VeryShort.Count]);
                     i4000VeryShort++;
                 }
                 else
                 {
                     // Ground
-                    allocatedGO = Instantiate(o4000Ground[i4000Ground%=o4000Ground.Count], pos, Quaternion.identity);
+                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o4000Ground[i4000Ground%=o4000Ground.Count]);
                     i4000Ground++;
                 }
             }
@@ -208,33 +222,33 @@ public class CityMake : MonoBehaviour
                 // 2000 block
                 if(height == "VeryTall")
                 {
-                    allocatedGO = Instantiate(o2000VeryTall[i2000VeryTall%=o2000VeryTall.Count], pos, Quaternion.identity);
+                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o2000VeryTall[i2000VeryTall%=o2000VeryTall.Count]);
                     i2000VeryTall++;
                 }
                 else if(height == "Tall")
                 {
-                    allocatedGO = Instantiate(o2000Tall[i2000Tall%=o2000Tall.Count], pos, Quaternion.identity);
+                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o2000Tall[i2000Tall%=o2000Tall.Count]);
                     i2000Tall++;
                 }
                 else if(height == "Medium")
                 {
-                    allocatedGO = Instantiate(o2000Medium[i2000Medium%=o2000Medium.Count], pos, Quaternion.identity);
+                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o2000Medium[i2000Medium%=o2000Medium.Count]);
                     i2000Medium++;
                 }
                 else if(height == "Short")
                 {
-                    allocatedGO = Instantiate(o2000Short[i2000Short%=o2000Short.Count], pos, Quaternion.identity);
+                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o2000Short[i2000Short%=o2000Short.Count]);
                     i2000Short++;
                 }
                 else if(height == "VeryShort")
                 {
-                    allocatedGO = Instantiate(o2000VeryShort[i2000VeryShort%=o2000VeryShort.Count], pos, Quaternion.identity);
+                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o2000VeryShort[i2000VeryShort%=o2000VeryShort.Count]);
                     i2000VeryShort++;
                 }
                 else
                 {
                     // Ground
-                    allocatedGO = Instantiate(o2000Ground[i2000Ground%=o2000Ground.Count], pos, Quaternion.identity);
+                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o2000Ground[i2000Ground%=o2000Ground.Count]);
                     i2000Ground++;
                 }
             }
@@ -243,37 +257,39 @@ public class CityMake : MonoBehaviour
                 // 1000 block
                 if(height == "VeryTall")
                 {
-                    allocatedGO = Instantiate(o1000VeryTall[i1000VeryTall%=o1000VeryTall.Count], pos, Quaternion.identity);
+                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o1000VeryTall[i1000VeryTall%=o1000VeryTall.Count]);
                     i1000VeryTall++;
                 }
                 else if(height == "Tall")
                 {
-                    allocatedGO = Instantiate(o1000Tall[i1000Tall%=o1000Tall.Count], pos, Quaternion.identity);
+                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o1000Tall[i1000Tall%=o1000Tall.Count]);
                     i1000Tall++;
                 }
                 else if(height == "Medium")
                 {
-                    allocatedGO = Instantiate(o1000Medium[i1000Medium%=o1000Medium.Count], pos, Quaternion.identity);
+                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o1000Medium[i1000Medium%=o1000Medium.Count]);
                     i1000Medium++;
                 }
                 else if(height == "Short")
                 {
-                    allocatedGO = Instantiate(o1000Short[i1000Short%=o1000Short.Count], pos, Quaternion.identity);
+                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o1000Short[i1000Short%=o1000Short.Count]);
                     i1000Short++;
                 }
                 else if(height == "VeryShort")
                 {
-                    allocatedGO = Instantiate(o1000VeryShort[i1000VeryShort%=o1000VeryShort.Count], pos, Quaternion.identity);
+                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o1000VeryShort[i1000VeryShort%=o1000VeryShort.Count]);
                     i1000VeryShort++;
                 }
                 else
                 {
                     // Ground
-                    allocatedGO = Instantiate(o1000Ground[i1000Ground%=o1000Ground.Count], pos, Quaternion.identity);
+                    allocatedGO = (GameObject)PrefabUtility.InstantiatePrefab(o1000Ground[i1000Ground%=o1000Ground.Count]);
                     i1000Ground++;
                 }
             }
 
+            allocatedGO.transform.position = pos;
+            allocatedGO.transform.rotation = Quaternion.identity;
             allocatedGO.transform.parent = cityGO.transform;
             //gpuInstances.Add( allocatedGO );
             total++;
@@ -390,9 +406,6 @@ public class CityMake : MonoBehaviour
         Gizmos.DrawLine(startPos, startPos + (transform.forward * gridDepth));
         Gizmos.DrawLine(startPos + (transform.right * gridWidth), startPos + (transform.right * gridWidth) + (transform.forward * gridDepth));
 	}
-
-
-
 
 
 
