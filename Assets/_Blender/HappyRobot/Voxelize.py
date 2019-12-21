@@ -29,7 +29,7 @@ class OBJECT_OT_Voxelize(Operator):
     @classmethod
     def poll(cls, context):
         #return context.object.select_get() and context.object.type == 'MESH' # or context.object.type == 'CURVE'
-        return context.object.select_get() and context.mode in {'OBJECT'}
+        return context.object and context.object.select_get() and context.mode in {'OBJECT'}
         # ob = context.edit_object
         # return ob and ob.type == 'MESH'
 

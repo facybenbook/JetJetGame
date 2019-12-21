@@ -13,17 +13,38 @@ class Interface_PT_Panel(bpy.types.Panel):
 
         scene = context.scene
 
-        layout.label(text= "Set Origin:")
 
+        layout.label(text= "Set Origin:")
         row = layout.row()
         row.operator("view3d.origin_to_selection", text = "Set Origin to Selection", icon='WORLD_DATA')
 
-        layout.label(text= "Voxelize:")
 
+        layout.label(text= "Voxelize:")
         row = layout.row()
         row.operator("object.voxelize", text = "Voxelize", icon='WORLD_DATA')
 
+
         layout.label(text= "Wireframe:")
+        row = layout.row()
+        row.operator("object.make_a_wireframe", text = "Type 1", icon='WORLD_DATA')
 
         row = layout.row()
-        row.operator("object.make_a_wireframe", text = "Make Wireframe", icon='WORLD_DATA')
+        row.operator("object.make_a_wireframe2", text = "Type 2", icon='WORLD_DATA')
+
+        row = layout.row()
+        row.operator("object.make_a_wireframe3", text = "Type 3", icon='WORLD_DATA')
+
+        row = layout.row()
+        row.operator("object.make_a_wireframe4", text = "Type 4", icon='WORLD_DATA')
+
+        row = layout.row()
+        row.operator("object.make_a_wireframe5", text = "Type 5", icon='WORLD_DATA')
+
+        row = layout.row()
+        row.operator("object.make_a_wireframe6", text = "Type 6", icon='WORLD_DATA')
+
+        row = layout.row()
+        row.operator("object.make_a_wireframe7", text = "Type 7", icon='WORLD_DATA')
+
+        row = layout.row()
+        row.operator("object.make_a_wireframe8", text = "Type 8", icon='WORLD_DATA')

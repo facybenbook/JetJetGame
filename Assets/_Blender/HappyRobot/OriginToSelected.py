@@ -9,8 +9,7 @@ class OriginToSelected_OT_Operator(bpy.types.Operator):
 
     @classmethod
     def poll(cls, context):
-        ob = context.edit_object
-        return ob and ob.type == 'MESH'
+        return context.edit_object and context.edit_object.type == 'MESH'
 
     def execute(self, context):
 

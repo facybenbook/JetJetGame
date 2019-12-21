@@ -16,8 +16,8 @@ import bpy
 from . Interface import Interface_PT_Panel
 from . OriginToSelected import OriginToSelected_OT_Operator
 from . Voxelize import OBJECT_OT_Voxelize
-from . MakeWire import OBJECT_OT_MakeWire
+from . MakeWire import OBJECT_OT_MakeWire, OBJECT_OT_MakeWire2, OBJECT_OT_MakeWire3, OBJECT_OT_MakeWire4, OBJECT_OT_MakeWire5, OBJECT_OT_MakeWire6, OBJECT_OT_MakeWire7, OBJECT_OT_MakeWire8
 
-classes = (Interface_PT_Panel, OriginToSelected_OT_Operator, OBJECT_OT_Voxelize, OBJECT_OT_MakeWire)
+classes = (Interface_PT_Panel, OriginToSelected_OT_Operator, OBJECT_OT_Voxelize, OBJECT_OT_MakeWire, OBJECT_OT_MakeWire2, OBJECT_OT_MakeWire3, OBJECT_OT_MakeWire4, OBJECT_OT_MakeWire5, OBJECT_OT_MakeWire6, OBJECT_OT_MakeWire7, OBJECT_OT_MakeWire8)
 
 register, unregister = bpy.utils.register_classes_factory(classes)
