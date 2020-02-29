@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CamTrack : MonoBehaviour
 {
-    [Header("Airwing (initially unassigned)")]
+    [Header("Airwing")]
     public GameObject Airwing = null;
 
     [Header("Camera")]
@@ -159,10 +159,10 @@ public class CamTrack : MonoBehaviour
     public void SetRailDir(Transform dir) {
         //print("SetRailDir " + dir.transform.rotation.eulerAngles);
 
-        RailDirection = dir.transform.forward;
-        RailRotation = dir.transform.rotation;
-
-        transform.rotation = RailRotation;
+        // RailDirection = dir.transform.forward;
+        // RailRotation = dir.transform.rotation;
+        //
+        // transform.rotation = RailRotation;
     }
 
     public Quaternion GetRailDir() {
@@ -188,7 +188,12 @@ public class CamTrack : MonoBehaviour
         //CheckFrustum();
 
 
-        Vector3 newPos = Airwing.transform.position + (RailDirection * (CamZOffset + ZoomZOffset));
+
+        transform.position = Airwing.transform.position + ((-Cam.transform.forward).normalized * CamZOffset);
+
+        transform.rotation = Airwing.transform.rotation;
+
+      //  Vector3 newPos = Airwing.transform.position + (RailDirection * (CamZOffset + ZoomZOffset));
 
         // Based on Rail direction speed
         // Adjust Cam Distance(not used)
@@ -210,11 +215,11 @@ public class CamTrack : MonoBehaviour
         // print(CamToAirwing.magnitude);
         // Vector3 NearFarAdjusted = (-CamToAirwing.normalized * CamAdjust);
 
-        transform.position = newPos + new Vector3(0, CamYOffset * CamYOffsetDir, 0); // + NearFarAdjusted;
 
-        //print(Airwing.transform.rotation.eulerAngles.z);
 
-        //ZRotate.transform.rotation = Quaternion.Euler(0f, RailRotation.eulerAngles.y, Airwing.transform.rotation.eulerAngles.z ); //Mathf.Clamp(Airwing.transform.rotation.eulerAngles.z, -90f, 90f)
+        // transform.position = newPos + new Vector3(0, CamYOffset * CamYOffsetDir, 0); // + NearFarAdjusted;
+
+
 
          // NEAR GROUND CHECK
         if (Airwing.transform.position.y <= GroundRayDistance + 100f)
@@ -319,7 +324,7 @@ public class CamTrack : MonoBehaviour
 
 
         // Height Limit
-        if( Airwing.transform.position.y > 12000f && CrossPos.y > 0)
+        if( Airwing.transform.position.y > 50000f && CrossPos.y > 0)
         {
             print ("***** HEIGHT LIMIT *****");
             AimPos = AutoPilotCrossHair.transform.position;

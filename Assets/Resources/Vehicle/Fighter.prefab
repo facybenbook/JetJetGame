@@ -376,14 +376,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68811b28db03f940875a067546b83b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 2
+  thrust: 5
   turnTorque: {x: 190, y: 190, z: 45}
   forceMult: 90000
   aggressiveBankAngle: 10
   DrawGUI: 0
   IdleDirection: {x: 0, y: 0, z: 1}
   AttackDistance: 20000
-  attackTime: 0.5
+  attackTime: 4
   Projectile: {fileID: 1142952893375712, guid: f063764b7e89e1e47ae3ffd7ad3b926c, type: 3}
 --- !u!114 &1330492382412100155
 MonoBehaviour:

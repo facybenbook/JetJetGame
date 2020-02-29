@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3904814276676172281}
   - component: {fileID: 5054602407428106655}
   - component: {fileID: 6695440941658927514}
+  - component: {fileID: 5837047092843030780}
   m_Layer: 0
   m_Name: 1000_bld.009
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19817316942554267}
-  m_LocalRotation: {x: 0.00000008146034, y: 0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 41877, y: 286.63043, z: -83259.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -59,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 02a5eb5a25278fb439320939a18ab093, type: 2}
+  - {fileID: 2100000, guid: c13b6d4d918dd57428c8974d58a88bc5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,3 +95,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3967094933844686187, guid: 5f93fb851bd47d242a5500de2e2547c0, type: 3}
+--- !u!114 &5837047092843030780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19817316942554267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13f42112a552354988a63573e49f5d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabPrototype: {fileID: 11400000, guid: 2ae7e6c3c72a86f4d8b83bea302ec3ad, type: 2}
+  gpuInstancerID: 0
+  state: 0
