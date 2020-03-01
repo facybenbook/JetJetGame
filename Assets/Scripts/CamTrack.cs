@@ -191,7 +191,7 @@ public class CamTrack : MonoBehaviour
 
         transform.position = Airwing.transform.position + ((-Cam.transform.forward).normalized * CamZOffset);
 
-        transform.rotation = Airwing.transform.rotation;
+        transform.rotation = Quaternion.Euler(Airwing.transform.rotation.eulerAngles.x, Airwing.transform.rotation.eulerAngles.y, 0);
 
       //  Vector3 newPos = Airwing.transform.position + (RailDirection * (CamZOffset + ZoomZOffset));
 

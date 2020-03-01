@@ -156,7 +156,7 @@ public class CityMake : MonoBehaviour
     {
 
 
-        //PerlinMake();
+        PerlinMake();
         BorderMake();
 
         NeedsPlacement = false;

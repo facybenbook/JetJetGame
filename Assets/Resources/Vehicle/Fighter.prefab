@@ -383,7 +383,7 @@ MonoBehaviour:
   DrawGUI: 0
   IdleDirection: {x: 0, y: 0, z: 1}
   AttackDistance: 20000
-  attackTime: 4
+  attackTime: 25
   Projectile: {fileID: 1142952893375712, guid: f063764b7e89e1e47ae3ffd7ad3b926c, type: 3}
 --- !u!114 &1330492382412100155
 MonoBehaviour:

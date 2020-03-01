@@ -21,6 +21,9 @@ public class Game : MonoBehaviour
     [Header("Cam Track")]
     public CamTrack CamTrk;
 
+    [Header("MouseFlight")]
+    public MouseFlightController MouseFlight;
+
     [Header("Rejuvinate Object")]
     public GameObject RejuvinateObject;
 
@@ -33,6 +36,7 @@ public class Game : MonoBehaviour
 
     void Start()
     {
+
         #if UNITY_EDITOR || UNITY_STANDALONE
             UnlockCursor();
         #else

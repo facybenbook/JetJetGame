@@ -87,7 +87,7 @@ public class Airwing : MonoBehaviour
         // if( ExploderBox != null )
         //     ExploderBox.SetActive(false);
 
-        EngineIdle();
+        //EngineIdle();
 
     }
 
@@ -235,7 +235,7 @@ public class Airwing : MonoBehaviour
 
 
             ////
-            FlyTarget = Game.I.CamTrk.AimPosition();
+            FlyTarget = Game.I.MouseFlight.MouseAimPos;
 
             var localFlyTarget = transform.InverseTransformPoint(FlyTarget).normalized;
             var angleOffTarget = Vector3.Angle(transform.forward, FlyTarget - transform.position);
@@ -500,12 +500,12 @@ public class Airwing : MonoBehaviour
     public void TurnOffTrails() {   trailFX.SetActive(false);   }
 
     public void TurnOnAudio() {
-        if( !BoomBox.I.EnginesOn)
-            BoomBox.I.PlayEngines();
+        //if( !BoomBox.I.EnginesOn)
+            //BoomBox.I.PlayEngines();
     }
 
     public void TurnOffAudio() {
-        BoomBox.I.PauseEngines();
+        //BoomBox.I.PauseEngines();
     }
 
 
