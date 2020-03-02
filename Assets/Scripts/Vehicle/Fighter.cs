@@ -10,7 +10,6 @@ public class Fighter : Airplane
 
     private Rigidbody Target = null;
     float TargetDistance = Mathf.Infinity;
-    float CullDistance = 35000f;
 
     public Vector3 IdleDirection;
 
@@ -57,7 +56,6 @@ public class Fighter : Airplane
         //print("SetTarget");
 
         Target = trg;
-        GetComponent<Cull>().Target = trg;
     }
 
 
@@ -69,7 +67,7 @@ public class Fighter : Airplane
 
         TargetDistance = Vector3.Distance(transform.position, Target.transform.position);
 
-        //print("d " + TargetDistance + " " + Vector3.Dot(  Game.I.CamTrk.GetRailForward(),  Target.transform.position - transform.position  ) );
+        //print("d " + TargetDistance + " " + Vector3.Dot(  Game.I.AirwingControl.GetRailForward(),  Target.transform.position - transform.position  ) );
 
         if( Mode != M.Observing)
             return;
@@ -99,10 +97,6 @@ public class Fighter : Airplane
 
     bool InFireRange() {
         return TargetDistance < AttackDistance;
-    }
-
-    bool InCullRange() {
-        return TargetDistance < CullDistance;
     }
 
     bool InFOV() {

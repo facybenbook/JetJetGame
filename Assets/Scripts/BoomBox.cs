@@ -51,7 +51,9 @@ public class BoomBox : MonoBehaviour
     {
         if(!EnginesOn) return;
 
-        float pitch = Game.I.CamTrk.Airwing.GetComponent<Airwing>().GetSpeedToPitch();
+        float pitch = Game.I.Airwing.GetSpeedToPitch();
+
+        print(pitch);
 
         SoundCubeA.pitch = pitch;
         SoundCubeB.pitch = pitch;

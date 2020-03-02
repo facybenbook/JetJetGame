@@ -15,102 +15,84 @@ public class Game : MonoBehaviour
     [Header("Main Menu")]
     public GameObject MainMenu;
 
-    [Header("Aim HUD")]
-    public GameObject AimHUD;
 
-    [Header("Cam Track")]
-    public CamTrack CamTrk;
+    [Header("Airwing")]
+    public Airwing Airwing;
 
-    [Header("MouseFlight")]
-    public MouseFlightController MouseFlight;
+    
+    [Header("Airwing HUD")]
+    public GameObject AirwingHUD;
+
+    [Header("AirwingControl")]
+    public AirwingController AirwingControl;
 
     [Header("Rejuvinate Object")]
     public GameObject RejuvinateObject;
 
-    bool IsMobile = false;
     bool CurrentlyPlaying = false;
     double StartTime = -1;
-    Vector3 InitialCamPos;
 
     //
 
     void Start()
     {
+      
+        LockCursor();
 
-        #if UNITY_EDITOR || UNITY_STANDALONE
-            UnlockCursor();
-        #else
-            IsMobile = true;
-            SetAndroidBack();
-        #endif
-
-        InitialCamPos = CamTrk.Cam.transform.position;
-
-        Screen.SetResolution(1024, 768, false);
-        CamTrk.CheckFrustum();
-
-        MainMenu.SetActive(true);
-        AimHUD.SetActive(false);
-        CamTrk.ControlCanvas.SetActive(false);
-
-        //StartCoroutine( StartingMenu() );
+        PlayMenu();
 
     }
 
     void Update()
     {
-
-        if( IsMobile)
-            HandleAndroidBack();
-        else
-            if( Input.GetKeyDown("escape"))
-                if(CurrentlyPlaying)
-                    PlayMenu();
-                else
-                    PlayGame();
+        if( Input.GetKeyDown("escape"))
+            if(CurrentlyPlaying)
+                PlayMenu();
+            else
+                PlayGame();
     }
 
     //
 
-    IEnumerator StartingMenu()
-    {
-        yield return 0;
-
-        PlayMenu();
-    }
+  
 
     public void PlayGame()
     {
         print("PlayGame");
         CurrentlyPlaying = true;
         Time.timeScale = 1;
-        CamTrk.Cam.GetComponent<Camera>().farClipPlane = 200000f;
 
 
 
         LockCursor();
         MainMenu.SetActive(false);
-        AimHUD.SetActive(true);
-        if(IsMobile)
-            CamTrk.ControlCanvas.SetActive(true);
+        AirwingHUD.SetActive(true);
     }
 
 
     public void PlayMenu()
     {
         print("PlayMenu");
-        CurrentlyPlaying = false;
-        Time.timeScale = 0;
-        CamTrk.Cam.GetComponent<Camera>().farClipPlane = 40000f;
+        
+        SetCamHome();
 
+        CurrentlyPlaying = false;
+       
         BoomBox.I.PauseEngines();
 
-        SetCamHome();
         MainMenu.SetActive(true);
-        AimHUD.SetActive(false);
+        AirwingHUD.SetActive(false);
 
-        if(IsMobile)
-            CamTrk.ControlCanvas.SetActive(false);
+        StartCoroutine( StopTime() );
+
+    }
+
+    
+    IEnumerator StopTime()
+    {
+        yield return 0;
+        Time.timeScale = 0;
+
     }
 
 
@@ -149,18 +131,14 @@ public class Game : MonoBehaviour
 
     public void SetCamHome()
     {
-        CamTrk.SetCamPos(InitialCamPos);
-        CamTrk.SetCamRot(Quaternion.identity);
+        AirwingControl.transform.position =  new Vector3(0, 200f, 0);
+        AirwingControl.transform.rotation = Quaternion.identity;
+        AirwingControl.ResetRig();
     }
 
-    public bool MobileMode()
-    {
-        return IsMobile;
-    }
 
     public void LockCursor()
     {
-        if( IsMobile)  return;
         //Cursor.lockState = CursorLockMode.Locked;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
@@ -168,21 +146,10 @@ public class Game : MonoBehaviour
 
     public void UnlockCursor()
     {
-        if( IsMobile)  return;
         Cursor.lockState = CursorLockMode.None;
         //Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
     }
 
-    void SetAndroidBack()
-    {
-        Input.backButtonLeavesApp = true;
-    }
-
-    void HandleAndroidBack()
-    {
-        if( Input.GetKeyDown(KeyCode.Escape))
-            Application.Quit();
-    }
 
 }

@@ -26,7 +26,7 @@ public class Stage : MonoBehaviour
         if( DoneSteps >= FixedSteps)  Destroy(gameObject);
 
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + incrementAngle, transform.rotation.eulerAngles.z);
-        Game.I.CamTrk.SetRailDir(transform);
+     
         DoneSteps++;
     }
 
@@ -36,9 +36,9 @@ public class Stage : MonoBehaviour
     {
         if( !tweening && other.tag == "AirwingBubble")
         {
-            //Game.I.CamTrk.SetRailDir(transform);
+            //Game.I.AirwingControl.SetRailDir(transform);
 
-            transform.rotation = Game.I.CamTrk.GetRailDir();
+            transform.rotation = Quaternion.identity; //Game.I.AirwingControl.GetRailDir();
             incrementAngle = Quaternion.Angle(transform.rotation, targetRotation);
             incrementAngle *= -1f;
             incrementAngle /= FixedSteps;
