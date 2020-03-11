@@ -28,7 +28,7 @@ public class SoundCube : MonoBehaviour
         // Draw a ray from here to Player
         // if the ray is not clear
         // change the audio source things
-        Vector3 to_player = transform.position - Game.I.Airwing.transform.position;
+        Vector3 to_player = transform.position - Game.I.CamTrk.Airwing.transform.position;
 
         //Debug.DrawLine(transform.position, transform.position - to_player, Color.yellow);
 

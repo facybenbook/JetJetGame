@@ -21,7 +21,7 @@ public class Commuter : Aircar
         SetStateIdle(transform.position);
     }
 
-    public override void Update()
+    void Update()
     {
         base.UpdateTick();
     }

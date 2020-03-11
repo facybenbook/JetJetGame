@@ -21,8 +21,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: _Grey1
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _EMISSION _QUAD_ON _WUV_UV0
+  m_Shader: {fileID: 4800000, guid: fbe5388c068b944d8ad5def744058faf, type: 3}
+  m_ShaderKeywords: _ENVIRONMENTREFLECTIONS_OFF _GLOSSYREFLECTIONS_OFF _SMOOTHNESS_ALBEDO
+    _TESSELLATION_EDGE
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -116,16 +117,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _WMask:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _WTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AASmooth: 1.5
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -135,28 +127,17 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 0
-    - _FDist: 0.1
-    - _FMode: 1
-    - _FPow: 5
-    - _Fade: 0
-    - _Fold: 3
     - _FresnelPower: 0
     - _FresnelScale: 0
-    - _GDist: 0.35
-    - _GEmission: 0
-    - _GPower: 0.5
-    - _GlossMapScale: 1
-    - _Glossiness: 1
-    - _GlossyReflections: 1
-    - _Glow: 0
-    - _Limits: 1
+    - _GlossMapScale: 0
+    - _Glossiness: 0
+    - _GlossyReflections: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Offset: 0
     - _Parallax: 0.02
     - _ParallaxStrength: 0
-    - _Quad: 1
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _RimPower: 3
@@ -169,7 +150,6 @@ Material:
     - _Surface: 0
     - _TessellationEdgeLength: 100
     - _TessellationUniform: 1
-    - _TwoSided: 1
     - _UVSec: 0
     - _V_WIRE_Ao: 0
     - _V_WIRE_AoStrength: 1
@@ -229,30 +209,17 @@ Material:
     - _V_WIRE_VertexColor: 0
     - _V_WIRE_WireTex_UVSet: 0
     - _V_WIRE_WireVertexColor: 0
-    - _WEmission: 0
-    - _WGloss: 0
-    - _WInvert: 0
-    - _WLight: 0
-    - _WMetal: 0
-    - _WMode: 3
-    - _WOpacity: 1
-    - _WParam: 0
-    - _WStyle: 0
-    - _WThickness: 0.18018001
-    - _WTransparency: 1
-    - _WUV: 0
     - _WireframeSmoothing: 1
     - _WireframeThickness: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 1}
-    - _Color: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
+    - _Color: {r: 0, g: 0, b: 0.9490196, a: 1}
     - _Emission: {r: 0, g: 0, b: 0.9490196, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
     - _FresnelPower: {r: 1, g: 1, b: 1, a: 1}
-    - _GColor: {r: 0, g: 0, b: 0, a: 1}
     - _InnerColor: {r: 0.43323454, g: 0.8867924, b: 0.18823427, a: 0}
     - _OuterColor: {r: 1, g: 0.0990566, b: 0.87372714, a: 0}
     - _ReflectColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -263,6 +230,5 @@ Material:
     - _V_WIRE_SourceTex_Scroll: {r: 0, g: 0, b: 0, a: 0}
     - _V_WIRE_Tessellation_DispTex_Scroll: {r: 0, g: 0, b: 0, a: 0}
     - _V_WIRE_WireTex_Scroll: {r: 0, g: 0, b: 0, a: 0}
-    - _WColor: {r: 0, g: 0.765, b: 0.65024984, a: 1}
     - _WireColor: {r: 1, g: 0, b: 0, a: 1}
     - _WireframeColor: {r: 0.5690263, g: 1, b: 0.05098039, a: 1}

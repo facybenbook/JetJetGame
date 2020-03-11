@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: F22-Raptor_A
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: fbe5388c068b944d8ad5def744058faf, type: 3}
   m_ShaderKeywords: _EMISSION _GLOSSYREFLECTIONS_OFF _SPECULAR_SETUP _TESSELLATION_EDGE
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 1
@@ -182,7 +182,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 0, b: 0.9764185, a: 1}
-    - _Color: {r: 0, g: 0.29536855, b: 0.8584906, a: 1}
+    - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _Emission: {r: 0.48089758, g: 0, b: 0.76862746, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}

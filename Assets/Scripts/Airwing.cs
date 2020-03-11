@@ -46,17 +46,6 @@ public class Airwing : MonoBehaviour
     float roll = 0f;
     Vector3 FlyTarget;
 
-    float AimZAngle = 0;
-    float AimZDir = 1f;
-    float ManualRoll = 0;
-    bool SpecifiedRoll;
-
-    bool  BoostOn = false;
-    float BoostTime = 30f;
-    float BoostMaxTime = 30f;
-    float BoostMinTime = 3f;
-
-
     [Header("Weapons")]
     public List<Weapon> weapons;
 
@@ -98,11 +87,9 @@ public class Airwing : MonoBehaviour
         // if( ExploderBox != null )
         //     ExploderBox.SetActive(false);
 
-        //EngineIdle();
+        EngineIdle();
 
     }
-
-
 
 
     void Update()
@@ -114,9 +101,6 @@ public class Airwing : MonoBehaviour
 
     void FixedUpdate()
     {
-        TimeSinceLastExplosion += Time.deltaTime;
-        TimeSinceLastDamage += Time.deltaTime;
-
         if( !IsDead) {
             SwivelWeapons();
             RunAutopilot();
@@ -152,102 +136,17 @@ public class Airwing : MonoBehaviour
     }
 
 
-    float GetManualRollInput()
+    float CalcWingsLevelRoll()
     {
 
-        AimZAngle = 0;
-        AimZDir = 1f;
-        ManualRoll = 0f;
-        SpecifiedRoll = false;
+        float ZRoll = (transform.localRotation.eulerAngles.z + Game.I.CamTrk.AimZ()) % 360f;
+        float ZDirection = Game.I.CamTrk.AimZDirection();
 
-        // MANUAL ROLL
-        // Q
-        if( Input.GetKey(KeyCode.Q))
-        {
-            ManualRoll = -1.5f; // continuous roll left
-        }
-        // E
-        else if( Input.GetKey(KeyCode.E))
-        {
-            ManualRoll = 1.5f; // continuous roll right
-        }
-        // SPECIFIED ROLL
-        else if( Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) )
-        {
-            // //                W
-            // //                0
-            // //          315        45
-            // //   A   270              90   D
-            // //          225       135
-            // //               180
-            // //                S
-
-            // W
-            if( Input.GetKey(KeyCode.W))
-            {
-                if( !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D))
-                    AimZAngle = 0f;
-
-                else if( Input.GetKey(KeyCode.A))
-                    AimZAngle = 315f;
-                else if( Input.GetKey(KeyCode.S))
-                    AimZAngle = 0f;
-                else if( Input.GetKey(KeyCode.D))
-                    AimZAngle = 45f;
-            }
-            //A
-            else if( Input.GetKey(KeyCode.A))
-            {
-                if( !Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D))
-                    AimZAngle = 270f;
-
-                else if( Input.GetKey(KeyCode.W))
-                    AimZAngle = 315f;
-                else if( Input.GetKey(KeyCode.S))
-                    AimZAngle = 225f;
-                else if( Input.GetKey(KeyCode.D))
-                    AimZAngle = 270f;
-            }
-            // S
-            else if( Input.GetKey(KeyCode.S))
-            {
-                if( !Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
-                    AimZAngle = 180f;
-
-                else if( Input.GetKey(KeyCode.W))
-                    AimZAngle = 180f;
-                else if( Input.GetKey(KeyCode.A))
-                    AimZAngle = 225f;
-                else if( Input.GetKey(KeyCode.D))
-                    AimZAngle = 135f;
-            }
-            // D
-            else if( Input.GetKey(KeyCode.D))
-            {
-                if( !Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S))
-                    AimZAngle = 90f;
-
-                else if( Input.GetKey(KeyCode.W))
-                    AimZAngle = 45f;
-                else if( Input.GetKey(KeyCode.S))
-                    AimZAngle = 135f;
-
-                else if( Input.GetKey(KeyCode.A))
-                    AimZAngle = 90f;
-            }
-
-            AimZDir = AimZAngle < 270f ? 1f : -1f;
-            SpecifiedRoll = true;
-        }
-        
-
-        float finalZRoll = (transform.localRotation.eulerAngles.z + AimZAngle) % 360f;
-
-        finalZRoll %= 360f;
+        ZRoll %= 360f;
 
 
         // turned off roll direction for now
-        if( SpecifiedRoll)
+        if( Game.I.CamTrk.IsKeyboardRoll())
         {
             //      Hard Roll with Roll Directionaity
             //
@@ -260,29 +159,29 @@ public class Airwing : MonoBehaviour
             // //             1 1  -- hard roll
 
             // Invert if rolling left
-            if( AimZDir == -1f)
-                finalZRoll = 360f - finalZRoll;
+            if( ZDirection == -1f)
+                ZRoll = 360f - ZRoll;
 
-            if( finalZRoll >= 350f) // Overshoot (270 -> 360 degrees) "halfpower reverse"
-                finalZRoll = -5f;
-            else if( finalZRoll >= 340f)
-                finalZRoll = -10f;
-            else if( finalZRoll >= 330f)
-                finalZRoll = -20f;
-            else if( finalZRoll >= 320f)
-                finalZRoll = -30f;
-            else if( finalZRoll >= 315f)
-                finalZRoll = -90f;
-            else if( finalZRoll > 180f)
-                finalZRoll = 360f;
+            if( ZRoll >= 350f) // Overshoot (270 -> 360 degrees) "halfpower reverse"
+                ZRoll = -5f;
+            else if( ZRoll >= 340f)
+                ZRoll = -10f;
+            else if( ZRoll >= 330f)
+                ZRoll = -20f;
+            else if( ZRoll >= 320f)
+                ZRoll = -30f;
+            else if( ZRoll >= 315f)
+                ZRoll = -90f;
+            else if( ZRoll > 180f)
+                ZRoll = 360f;
             else
-                finalZRoll *= 2; // Range power from 0..1
+                ZRoll *= 2; // Range power from 0..1
 
             // Negate if rolling left
-            if( AimZDir == -1f)
-                finalZRoll *= AimZDir;
+            if( ZDirection == -1f)
+                ZRoll *= ZDirection;
 
-            finalZRoll /= 360f;
+            ZRoll /= 360f;
 
         }
         else
@@ -306,16 +205,25 @@ public class Airwing : MonoBehaviour
             // //          -0.75    0.75
             // //              -1 1
 
-            if( finalZRoll > 180f)
+            if( ZRoll > 180f)
             {
-                finalZRoll = 360f - finalZRoll;
-                finalZRoll = -finalZRoll;
+                ZRoll = 360f - ZRoll;
+                ZRoll = -ZRoll;
             }
-            finalZRoll /= 180f;
+            ZRoll /= 180f;
         }
 
-        return finalZRoll;
+        return ZRoll;
     }
+
+
+    void SwivelWeapons()
+    {
+        foreach (Weapon w in weapons)
+            //Debug.DrawLine(w.gameObject.transform.position + (rigid.velocity * Time.deltaTime), Game.I.CamTrk.TargetPosition(), Color.green);
+            w.gameObject.transform.LookAt( Game.I.CamTrk.TargetPosition(), transform.right );
+    }
+
 
 
     void RunAutopilot()
@@ -327,17 +235,17 @@ public class Airwing : MonoBehaviour
 
 
             ////
-            FlyTarget = Game.I.AirwingControl.MouseAimPos;
+            FlyTarget = Game.I.CamTrk.AimPosition();
 
             var localFlyTarget = transform.InverseTransformPoint(FlyTarget).normalized;
             var angleOffTarget = Vector3.Angle(transform.forward, FlyTarget - transform.position);
 
             yaw = localFlyTarget.x;
-            pitch = Mathf.Clamp(localFlyTarget.y, -1f, 1f);
+            pitch = Mathf.Clamp(localFlyTarget.y, -0.8f, 1f); //Mathf.Clamp(localFlyTarget.y, -1f, 1f);
 
             var agressiveRoll = Mathf.Clamp(localFlyTarget.x, -1f, 1f);
 
-            float wingsLevelRoll = GetManualRollInput();
+            float wingsLevelRoll = CalcWingsLevelRoll();
 
             var wingsLevelInfluence = Mathf.InverseLerp(0f, aggressiveTurnAngle, angleOffTarget);
             ////
@@ -345,20 +253,32 @@ public class Airwing : MonoBehaviour
 
 
             // PITCH
-           elevator.Deflection = pitch;
+            if( Game.I.CamTrk.IsOnTheGround())
+                elevator.Deflection = 0;
+            else if( Game.I.CamTrk.IsManualRoll())
+                elevator.Deflection = pitch;
+            else
+                elevator.Deflection = pitch;
 
 
             // YAW
-           if( pitch > -0.25f && pitch < 0.25f)
-                rudder.Deflection = -(yaw);
-            else
+            if( Game.I.CamTrk.IsManualRoll())
                 rudder.Deflection = 0;
+            if( Game.I.CamTrk.IsOnTheGround())
+                rudder.Deflection = -(2f * yaw);
+            else
+            {
+                if( pitch > -0.25f && pitch < 0.25f)
+                    rudder.Deflection = -(yaw);
+                else
+                    rudder.Deflection = 0;
+            }
 
 
             // ROLL
-            if( ManualRoll != 0f )
-                roll = ManualRoll;
-            else if( SpecifiedRoll ) 
+            if( Game.I.CamTrk.IsManualRoll())
+                roll = Game.I.CamTrk.ManualRollVal();
+            else if( Game.I.CamTrk.IsKeyboardRoll() || Game.I.CamTrk.IsOnTheGround() || Game.I.CamTrk.IsMovingOnUp()) // || Game.I.CamTrk.IsNearTheGround()
                 roll = wingsLevelRoll;
             else
                 roll = Mathf.Lerp(wingsLevelRoll, agressiveRoll, wingsLevelInfluence);
@@ -368,6 +288,7 @@ public class Airwing : MonoBehaviour
 
 
             // THROTTLE
+
             if(Input.mouseScrollDelta.y != 0)
                 throttle += (Input.mouseScrollDelta.y * 0.1f);
 
@@ -379,8 +300,6 @@ public class Airwing : MonoBehaviour
                 //print("Throttle adjusted: " + throttle);
             }
 
-
-            // Final Vehicle Thrust
             rigid.AddRelativeForce(Vector3.forward * thrustMax * throttle, ForceMode.Force);
 
         }
@@ -409,16 +328,6 @@ public class Airwing : MonoBehaviour
         }
     }
 
-
-    
-
-    void SwivelWeapons()
-    {
-        foreach (Weapon w in weapons) {
-            Debug.DrawLine(w.gameObject.transform.position + (rigid.velocity * Time.deltaTime), FlyTarget, Color.green);
-            w.gameObject.transform.LookAt( FlyTarget, transform.right );
-        }
-    }
 
 
     public void Shoot()
@@ -497,6 +406,7 @@ public class Airwing : MonoBehaviour
         transform.position = Rejuvinator.transform.position;
         transform.rotation = Rejuvinator.transform.rotation;
 
+        Game.I.CamTrk.SetRailStartPos(Rejuvinator);
 
         if( ExploderBox != null )
             ExploderBox.SetActive(true);
@@ -610,14 +520,14 @@ public class Airwing : MonoBehaviour
     public float GetSpeedToPitch()
     {
         // Pitch value from velocity
-        SpeedToPitch = ( rigid.velocity.magnitude / 3200f ) ; //2400f is roughly max speed, this is a arbitary
+        SpeedToPitch = ( rigid.velocity.magnitude / 1800f ) ; //2400f is roughly max speed, this is a arbitary
         if( SpeedToPitch > 1.42f) SpeedToPitch += 0.05f;
         if( SpeedToPitch > 1.4f) SpeedToPitch += 0.05f;
         if( SpeedToPitch > 1.35f) SpeedToPitch += 0.05f;
         if( SpeedToPitch > 1.3f) SpeedToPitch += 0.05f;
         if( SpeedToPitch > 0.9f) SpeedToPitch += 0.05f;
 
-        //if( SpeedToPitch < 0.6f) SpeedToPitch = 0.6f;
+        if( SpeedToPitch < 0.6f) SpeedToPitch = 0.6f;
         // else if( SpeedToPitch < 0.7f) SpeedToPitch = 0.7f; // sharp edge
         // else if( SpeedToPitch < 0.8f) SpeedToPitch = 0.8f; // sharp edge
 

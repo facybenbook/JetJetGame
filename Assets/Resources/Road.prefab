@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4708288627168913412}
   - component: {fileID: 8904563685613592233}
   - component: {fileID: 1793789961670878055}
+  - component: {fileID: 7914301252907913115}
   m_Layer: 8
   m_Name: Road
   m_TagString: RoadNetwork
@@ -91,5 +92,20 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 4000, z: 1}
-  m_Center: {x: 0, y: 2000, z: 0}
+  m_Size: {x: 0.1, y: 10000, z: 1}
+  m_Center: {x: 0, y: 5000, z: 0}
+--- !u!114 &7914301252907913115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6495590723004669276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13f42112a552354988a63573e49f5d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabPrototype: {fileID: 11400000, guid: 2cadacedcef021441bec7db61551189a, type: 2}
+  gpuInstancerID: 0
+  state: 0

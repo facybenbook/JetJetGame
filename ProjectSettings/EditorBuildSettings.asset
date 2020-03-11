@@ -11,13 +11,4 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/KEORBuildings.unity
     guid: 540010497beba6c43bd879aa9b1efa0e
-  - enabled: 1
-    path: Assets/Retro/Scenes/Menu/Loading.unity
-    guid: 952835b3f7012469bb5a47a0fd744aa0
-  - enabled: 1
-    path: Assets/Retro/Scenes/Menu/Menu.unity
-    guid: 0dc85c021826545c68e5aed9ca83e70c
-  - enabled: 1
-    path: Assets/Retro/Scenes/Game/NeonLevel.unity
-    guid: 39efe3ccd59964251a3163c06ca522b0
   m_configObjects: {}

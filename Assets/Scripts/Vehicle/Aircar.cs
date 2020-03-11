@@ -445,11 +445,11 @@ public class Aircar : MonoBehaviour {
     //
     //         if(landingSpot != null && landingSpot.spot != null)
     //         {
-    //             GUI.Label(new Rect(pos.x - 40, Screen.height - pos.y + ypos, 80, 25), "LandingSpot " + currentPort.portname, guistyle ); ypos+=yplus; // + landingSpot.spot.ToString()
+    //             GUI.Label(new Rect(pos.x - 40, Screen.height - pos.y + ypos, 80, 25), "LandingSpot " + currentPort.name, guistyle ); ypos+=yplus; // + landingSpot.spot.ToString()
     //         }
     //         if(gettingDistanceFromTarget)
     //         {
-    //             GUI.Label(new Rect(pos.x - 40, Screen.height - pos.y + ypos, 80, 25), "Getting Distance " + currentPort.portname, guistyle );  ypos+=yplus; // + gettingDistanceTimer.ToString("f1")
+    //             GUI.Label(new Rect(pos.x - 40, Screen.height - pos.y + ypos, 80, 25), "Getting Distance " + currentPort.name, guistyle );  ypos+=yplus; // + gettingDistanceTimer.ToString("f1")
     //         }
     //
     //         // if(currentPort != null)

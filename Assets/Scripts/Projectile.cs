@@ -37,13 +37,13 @@ public class Projectile : MonoBehaviour
 
     void DoStep()
     {
-        //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * range, Color.yellow);
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * range, Color.yellow);
         transform.position += transform.forward * range;
     }
 
     void DoHit()
     {
-        //Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.red);
+        Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.red);
         hitpositon = transform.position + transform.forward * hit.distance;
         transform.position = hitpositon;
 

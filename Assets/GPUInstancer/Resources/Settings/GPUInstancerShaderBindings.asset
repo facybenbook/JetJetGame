@@ -12,4 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d8588b9b4d4e344b3c6c8da8806a1c, type: 3}
   m_Name: GPUInstancerShaderBindings
   m_EditorClassIdentifier: 
-  shaderInstances: []
+  shaderInstances:
+  - name: JetJet/catlikecoding/Flat Wireframe
+    instancedShader: {fileID: 4800000, guid: d3fd9c0f42988514da90db63049d5f32, type: 3}
+    modifiedDate: 03/11/2020 23:40:03.206
+    isOriginalInstanced: 0
+    extensionCode: 
+  - name: JetJet/catlikecoding/Tessellation
+    instancedShader: {fileID: 4800000, guid: b1163dc47862ec047a2bd61ce0e3d94d, type: 3}
+    modifiedDate: 03/11/2020 23:40:05.990
+    isOriginalInstanced: 0
+    extensionCode: 
