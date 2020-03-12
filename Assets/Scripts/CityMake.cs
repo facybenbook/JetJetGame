@@ -90,7 +90,7 @@ public class CityMake : MonoBehaviour
             GPUInstancerAPI.InitializeGPUInstancer(prefabManager);
         }
 
-        Debug.Break();
+        //Debug.Break();
     }
 
     //
