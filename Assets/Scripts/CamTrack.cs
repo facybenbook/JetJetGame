@@ -313,7 +313,7 @@ public class CamTrack : MonoBehaviour
 
 
         // Height Limit
-        if( Airwing.transform.position.y > 12000f && CrossPos.y > 0)
+        if( Airwing.transform.position.y > 120000f && CrossPos.y > 0)
         {
             print ("***** HEIGHT LIMIT *****");
             AimPos = AutoPilotCrossHair.transform.position;
