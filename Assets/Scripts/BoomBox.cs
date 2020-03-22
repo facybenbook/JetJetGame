@@ -32,11 +32,7 @@ public class BoomBox : MonoBehaviour
 
     void Start()
     {
-        Radio.Play();
-
-        PauseEngines();
-
-        //StartCoroutine( PlayRadio() );
+        StartCoroutine( PlayRadio() );
     }
 
     IEnumerator PlayRadio()
